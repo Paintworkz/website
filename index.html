@@ -348,6 +348,7 @@
     footer { flex-direction: column; text-align: center; padding: 32px 20px; }
   }
 </style>
+  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
 </head>
 <body>
 
@@ -521,7 +522,7 @@
           <li><span class="dim">✗</span> <span class="dim">Estimates, quotes &amp; invoices</span></li>
           <li><span class="dim">✗</span> <span class="dim">Pricing matrix &amp; staff logins</span></li>
         </ul>
-        <a href="https://paintworkz.github.io/PaintWorkz-App/" class="btn-tier btn-tier-outline">Start Free Trial →</a>
+        <button onclick="upgradeSolo()" class="btn-tier btn-tier-outline" style="width:100%; cursor:pointer;">Start Free Trial →</button>
       </div>
 
       <!-- PRO -->
@@ -541,7 +542,7 @@
           <li><span class="tick">✓</span> Batch PDF printing</li>
           <li><span class="tick">✓</span> Priority support</li>
         </ul>
-        <a href="https://paintworkz.github.io/PaintWorkz-App/" class="btn-tier btn-tier-gold">Upgrade to Pro →</a>
+        <button onclick="upgradePro()" class="btn-tier btn-tier-gold" style="width:100%; cursor:pointer;">Upgrade to Pro →</button>
       </div>
 
     </div>
@@ -639,7 +640,7 @@
       <p>New accounts receive 14 days of Solo-level access at no charge. No credit card is required to start a trial. At the end of the trial period, the account automatically moves to the Free plan unless a paid subscription is activated.</p>
 
       <h3>4. Subscriptions &amp; Payment</h3>
-      <p>Pro features require a paid subscription. Plans are available at $25 AUD/month (Basic) or $79 AUD/month (Pro). Subscriptions are managed and billed by Paddle as our Merchant of Record. By subscribing you also agree to Paddle's terms of service. Subscription fees are charged in advance. You may cancel at any time; cancellation takes effect at the end of the current billing period.</p>
+      <p>Pro features require a paid subscription. Plans are available at $49 AUD/month (Solo) or $99 AUD/month (Pro). Subscriptions are managed and billed by Paddle as our Merchant of Record. By subscribing you also agree to Paddle's terms of service. Subscription fees are charged in advance. You may cancel at any time; cancellation takes effect at the end of the current billing period.</p>
 
       <h3>5. Refunds</h3>
       <p>Refund requests within 7 days of initial purchase will be considered. No refunds are issued for partial periods after this window. Submit a request via our <a href="refund.html">Refund Policy</a> page.</p>
@@ -679,5 +680,38 @@
   <div class="footer-copy">© 2026 Paintworkz PTY LTD (ABN 53 688 456 313) · Victoria, Australia · All rights reserved</div>
 </footer>
 
+<script>
+  const PADDLE_TOKEN   = 'live_13320be4d57f88a60d7817d2654';
+  const PADDLE_SOLO_ID = 'pri_01kk8wzrkz9qwrrs98nsp1yegx';
+  const PADDLE_PRO_ID  = 'pri_01kk8x2cqt2983dm2fz9rcekmx';
+
+  (function initPaddle() {
+    function tryInit() {
+      if (typeof Paddle === 'undefined') { setTimeout(tryInit, 300); return; }
+      Paddle.Initialize({
+        token: PADDLE_TOKEN,
+        eventCallback: function(event) {
+          if (event.name === 'checkout.completed') {
+            // Redirect to app after successful subscription
+            setTimeout(() => {
+              window.location.href = 'https://paintworkz.github.io/PaintWorkz-App/';
+            }, 2000);
+          }
+        }
+      });
+    }
+    tryInit();
+  })();
+
+  function upgradeSolo() {
+    if (typeof Paddle === 'undefined') { alert('Payment system loading, please try again.'); return; }
+    Paddle.Checkout.open({ items: [{ priceId: PADDLE_SOLO_ID, quantity: 1 }] });
+  }
+
+  function upgradePro() {
+    if (typeof Paddle === 'undefined') { alert('Payment system loading, please try again.'); return; }
+    Paddle.Checkout.open({ items: [{ priceId: PADDLE_PRO_ID, quantity: 1 }] });
+  }
+</script>
 </body>
 </html>
