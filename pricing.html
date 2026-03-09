@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — PaintWorkz Pro</title>
+<meta name="description" content="PaintWorkz Pro pricing. 14-day free trial, no card required. Basic $25/month or Pro $79/month AUD.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #d4af37; --gold-light: #f0d060;
+    --black: #0a0a0a; --dark: #111111; --card: #1a1a1a;
+    --border: #2a2a2a; --text: #e8e8e8; --muted: #888; --green: #4caf50;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--black); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.6; }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 40px; background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(12px); border-bottom: 1px solid rgba(212,175,55,0.15);
+  }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 2px; color: var(--gold); text-decoration: none; }
+  .nav-logo span { color: #fff; }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-cta { background: var(--gold) !important; color: #000 !important; padding: 9px 20px; border-radius: 6px; font-weight: 700 !important; }
+  .nav-cta:hover { background: var(--gold-light) !important; }
+  main { max-width: 1000px; margin: 0 auto; padding: 140px 24px 100px; }
+  .section-tag { font-size: 11px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 14px; display: block; }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 6vw, 64px); letter-spacing: 2px; color: #fff; line-height: 1; margin-bottom: 16px; }
+  .lead { font-size: 18px; color: var(--muted); font-weight: 300; margin-bottom: 56px; }
+  .tier-ladder {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-bottom: 32px;
+  }
+  .tier { background: var(--card); padding: 36px 28px; position: relative; border-right: 1px solid var(--border); }
+  .tier:last-child { border-right: none; }
+  .tier.featured { background: linear-gradient(160deg, #1e1a0a, #1a1a1a); border-top: 3px solid var(--gold); }
+  .tier-badge { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; padding: 3px 14px; border-radius: 0 0 8px 8px; white-space: nowrap; }
+  .tier-name { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 20px; padding-top: 8px; }
+  .tier.featured .tier-name { color: var(--gold); }
+  .tier-price { font-family: 'Bebas Neue', sans-serif; font-size: 52px; color: #fff; line-height: 1; margin-bottom: 4px; }
+  .tier-price sup { font-size: 22px; color: var(--muted); vertical-align: top; margin-top: 10px; }
+  .tier-price sub { font-size: 14px; color: var(--muted); vertical-align: bottom; margin-bottom: 8px; }
+  .tier-period { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .tier-note { font-size: 12px; color: var(--green); font-weight: 600; margin-bottom: 24px; min-height: 18px; }
+  .tier-features { list-style: none; margin-bottom: 28px; }
+  .tier-features li { font-size: 13px; color: var(--text); padding: 6px 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; }
+  .tier-features li:last-child { border-bottom: none; }
+  .tier-features li .tick { color: var(--gold); font-weight: 700; flex-shrink: 0; }
+  .tier-features li .dim { color: var(--muted); }
+  .btn-tier { display: block; width: 100%; padding: 13px; text-align: center; border-radius: 8px; font-weight: 700; font-size: 14px; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; }
+  .btn-tier-gold { background: var(--gold); color: #000; }
+  .btn-tier-gold:hover { background: var(--gold-light); }
+  .btn-tier-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-tier-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .trial-banner { background: rgba(212,175,55,0.07); border: 1px solid rgba(212,175,55,0.2); border-radius: 10px; padding: 16px 24px; text-align: center; font-size: 14px; color: var(--muted); margin-bottom: 16px; }
+  .trial-banner strong { color: var(--gold); }
+  .note { text-align: center; font-size: 12px; color: var(--muted); margin-bottom: 60px; }
+  .faq { max-width: 680px; }
+  .faq h2 { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: #fff; letter-spacing: 2px; margin-bottom: 32px; }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
+  .faq-item h3 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .faq-item p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+  footer { background: var(--dark); border-top: 1px solid var(--border); padding: 32px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--gold); letter-spacing: 2px; }
+  .footer-logo span { color: #fff; }
+  .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 12px; color: var(--muted); width: 100%; text-align: center; margin-top: 8px; }
+  @media (max-width: 768px) { nav { padding: 14px 20px; } .nav-links { display: none; } .tier-ladder { grid-template-columns: 1fr; } .tier { border-right: none; border-bottom: 1px solid var(--border); } .tier:last-child { border-bottom: none; } footer { flex-direction: column; text-align: center; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">PaintWorkz<span> Pro</span></a>
+  <div class="nav-links">
+    <a href="index.html#features">Features</a>
+    <a href="index.html#how">How It Works</a>
+    <a href="pricing.html" class="active">Pricing</a>
+    <a href="index.html#about">About</a>
+    <a href="https://paintworkz.github.io/PaintWorkz-App/" class="nav-cta" target="_blank">Open App →</a>
+  </div>
+</nav>
+<main>
+  <span class="section-tag">Pricing</span>
+  <h1>Simple, Transparent Pricing.</h1>
+  <p class="lead">Start with a full 14-day trial — no card required. Upgrade when you're ready.</p>
+
+  <div class="tier-ladder">
+    <div class="tier">
+      <div class="tier-name">Free</div>
+      <div class="tier-price">$<span style="font-size:52px;">0</span></div>
+      <div class="tier-period">forever</div>
+      <div class="tier-note">After your 14-day trial</div>
+      <ul class="tier-features">
+        <li><span class="tick">✓</span> View &amp; print existing jobs</li>
+        <li><span class="tick">✓</span> Supply dockets &amp; mixing cards</li>
+        <li><span class="tick">✓</span> Shop labels &amp; paint orders</li>
+        <li><span class="tick">✓</span> A3 job schedule</li>
+        <li><span class="tick">✓</span> Client database</li>
+        <li><span class="dim">✗</span> <span class="dim">Create new jobs</span></li>
+        <li><span class="dim">✗</span> <span class="dim">Estimates, quotes &amp; invoices</span></li>
+      </ul>
+      <a href="https://paintworkz.github.io/PaintWorkz-App/" class="btn-tier btn-tier-outline">Get Started Free</a>
+    </div>
+    <div class="tier">
+      <div class="tier-name">Basic</div>
+      <div class="tier-price"><sup>$</sup>25<sub>/mo</sub></div>
+      <div class="tier-period">AUD per month</div>
+      <div class="tier-note">Most popular for sole traders</div>
+      <ul class="tier-features">
+        <li><span class="tick">✓</span> Everything in Free</li>
+        <li><span class="tick">✓</span> Create unlimited jobs</li>
+        <li><span class="tick">✓</span> Full measurement sheet</li>
+        <li><span class="tick">✓</span> Paint formula library</li>
+        <li><span class="tick">✓</span> Cloud sync across devices</li>
+        <li><span class="dim">✗</span> <span class="dim">Estimates, quotes &amp; invoices</span></li>
+        <li><span class="dim">✗</span> <span class="dim">Pricing matrix editor</span></li>
+      </ul>
+      <a href="https://paintworkz.github.io/PaintWorkz-App/" class="btn-tier btn-tier-outline">Start 14-Day Trial</a>
+    </div>
+    <div class="tier featured">
+      <div class="tier-badge">BEST VALUE</div>
+      <div class="tier-name">Pro</div>
+      <div class="tier-price"><sup>$</sup>79<sub>/mo</sub></div>
+      <div class="tier-period">AUD per month</div>
+      <div class="tier-note">Full business suite</div>
+      <ul class="tier-features">
+        <li><span class="tick">✓</span> Everything in Basic</li>
+        <li><span class="tick">✓</span> Estimates, quotes &amp; invoices</li>
+        <li><span class="tick">✓</span> Pricing matrix editor</li>
+        <li><span class="tick">✓</span> Batch PDF printing</li>
+        <li><span class="tick">✓</span> Business reports &amp; KPIs</li>
+        <li><span class="tick">✓</span> Credit notes</li>
+        <li><span class="tick">✓</span> Priority support</li>
+      </ul>
+      <a href="https://paintworkz.github.io/PaintWorkz-App/" class="btn-tier btn-tier-gold">Start 14-Day Trial</a>
+    </div>
+  </div>
+
+  <div class="trial-banner">
+    <strong>14-day free trial</strong> — full Pro access, no credit card required. After 14 days, choose your plan or drop back to Free.
+  </div>
+  <p class="note">Prices in AUD inc. GST · Payments processed securely by Paddle · Cancel any time</p>
+
+  <div class="faq">
+    <h2>Common Questions</h2>
+    <div class="faq-item">
+      <h3>Do I need a credit card to start?</h3>
+      <p>No. The 14-day trial gives you full Pro access with no card required. You only need to enter payment details when you choose to upgrade.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What happens after the trial?</h3>
+      <p>Your account moves to the Free plan automatically. You keep access to view and print existing jobs, but creating new jobs requires a paid subscription.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I cancel any time?</h3>
+      <p>Yes. Cancel any time from your account settings. Your subscription continues until the end of the current billing period, then drops to Free.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What currency are prices in?</h3>
+      <p>All prices are in Australian Dollars (AUD) and include GST. Paddle handles international pricing conversion where applicable.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How are payments processed?</h3>
+      <p>All payments are handled securely by Paddle, our Merchant of Record. Paddle is a trusted global payment processor used by thousands of software companies. We never see or store your card details.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is there a refund policy?</h3>
+      <p>Yes. See our <a href="refund.html" style="color:var(--gold);">Refund Policy</a> for full details. We offer refunds within 7 days of initial purchase.</p>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="footer-logo">PaintWorkz<span> Pro</span></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="refund.html">Refund Policy</a>
+    <a href="https://paintworkz.github.io/PaintWorkz-App/" target="_blank">Open App</a>
+  </div>
+  <div class="footer-copy">© 2026 Paintworkz PTY LTD (ABN 53 688 456 313) · Queensland, Australia</div>
+</footer>
+</body>
+</html>
