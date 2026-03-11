@@ -112,8 +112,28 @@
   .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
   .footer-links a:hover { color: var(--gold); }
   .footer-copy { font-size: 12px; color: var(--muted); width: 100%; text-align: center; margin-top: 8px; }
+
+  /* ── Video section ── */
+  #demo { background: var(--dark); position: relative; overflow: hidden; padding: 80px 24px; }
+  #demo::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:900px; height:500px; background:radial-gradient(ellipse,rgba(212,175,55,0.07) 0%,transparent 70%); pointer-events:none; }
+  .video-player-wrap { position:relative; max-width:880px; margin:0 auto; border-radius:16px; overflow:hidden; border:1px solid rgba(212,175,55,0.25); box-shadow:0 0 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(212,175,55,0.06); }
+  .video-chrome-bar { background:#111; padding:10px 16px; display:flex; align-items:center; gap:8px; border-bottom:1px solid rgba(212,175,55,0.1); }
+  .chrome-dot { width:11px; height:11px; border-radius:50%; flex-shrink:0; }
+  .chrome-url { margin-left:12px; font-size:11px; color:#555; font-family:'DM Mono',monospace; letter-spacing:0.5px; }
+  .demo-video { width:100%; display:block; background:#000; aspect-ratio:16/9; max-height:520px; object-fit:contain; }
+  .video-cta { margin-top:36px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
   @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
-  @media (max-width: 768px) { nav { padding: 14px 20px; } .nav-links { display: none; } .stats-bar { gap: 32px; padding: 24px 20px; } section { padding: 70px 20px; } .tier-ladder { grid-template-columns: 1fr; } .tier { border-right: none; border-bottom: 1px solid var(--border); } .tier:last-child { border-bottom: none; } .about-inner { grid-template-columns: 1fr; gap: 40px; } footer { flex-direction: column; text-align: center; padding: 32px 20px; } }
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; } .nav-links { display: none; }
+    .stats-bar { gap: 32px; padding: 24px 20px; }
+    section { padding: 70px 20px; }
+    #demo { padding: 60px 16px; }
+    .tier-ladder { grid-template-columns: 1fr; }
+    .tier { border-right: none; border-bottom: 1px solid var(--border); } .tier:last-child { border-bottom: none; }
+    .about-inner { grid-template-columns: 1fr; gap: 40px; }
+    footer { flex-direction: column; text-align: center; padding: 32px 20px; }
+  }
 </style>
 <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
 </head>
@@ -123,6 +143,7 @@
   <a href="#" class="nav-logo">PaintWorkz<span> Pro</span></a>
   <div class="nav-links">
     <a href="#features">Features</a>
+    <a href="#demo">Demo</a>
     <a href="#how">How It Works</a>
     <a href="#pricing">Pricing</a>
     <a href="#about">About</a>
@@ -136,9 +157,41 @@
   <p class="hero-sub">Measure jobs, generate quotes, calculate 2Pac mixes, track stock, schedule work, and invoice clients — all in one system.</p>
   <div class="hero-actions">
     <a href="https://app.paintworkzpro.com.au/" class="btn-primary" target="_blank">Get Started Free →</a>
-    <a href="#pricing" class="btn-secondary">See Pricing</a>
+    <a href="#demo" class="btn-secondary">▶ Watch Demo</a>
   </div>
   <p class="hero-note">7 Days Free — Solo Access · No credit card required · Australian made</p>
+</section>
+
+<!-- ── VIDEO SECTION ── -->
+<section id="demo">
+  <div class="container" style="text-align:center; position:relative;">
+    <span class="section-tag">See It In Action</span>
+    <h2 style="margin-bottom:12px;">Watch the<br><em style="font-style:normal;color:var(--gold);">Full Walkthrough</em></h2>
+    <p style="font-size:15px;color:var(--muted);max-width:500px;margin:0 auto 40px;font-weight:300;">From measuring a job to generating the invoice — the complete workflow in one take.</p>
+
+    <div class="video-player-wrap">
+      <!-- Fake browser chrome -->
+      <div class="video-chrome-bar">
+        <div class="chrome-dot" style="background:#ff5f56;"></div>
+        <div class="chrome-dot" style="background:#ffbd2e;"></div>
+        <div class="chrome-dot" style="background:#27c93f;"></div>
+        <span class="chrome-url">app.paintworkzpro.com.au</span>
+      </div>
+      <video
+        class="demo-video"
+        src="Recording_PaintWrokzPro_website_tour.mp4"
+        controls
+        preload="metadata"
+        playsinline
+      ></video>
+    </div>
+
+    <div class="video-cta">
+      <a href="https://app.paintworkzpro.com.au/" class="btn-primary" target="_blank">Try It Free →</a>
+      <a href="#pricing" class="btn-secondary">See Pricing</a>
+    </div>
+    <p style="margin-top:14px;font-size:12px;color:var(--muted);">Australian made · Works on iPhone, Android &amp; Desktop</p>
+  </div>
 </section>
 
 <div class="stats-bar">
@@ -389,7 +442,7 @@
       <h3>9. Governing Law</h3>
       <p>These terms are governed by the laws of Victoria, Australia.</p>
       <h3>10. Contact</h3>
-      <p>Paintworkz PTY LTD · <a href="/cdn-cgi/l/email-protection#81f2f4f1f1eef3f5c1f1e0e8eff5f6eef3eafbf1f3eeafe2eeecafe0f4"><span class="__cf_email__" data-cfemail="d8abada8a8b7aaac98a8b9b1b6acafb7aab3a2a8aab7f6bbb7b5f6b9ad">[email&#160;protected]</span></a> · ABN 53 688 456 313</p>
+      <p>Paintworkz PTY LTD · ABN 53 688 456 313</p>
     </div>
   </div>
 </div>
@@ -398,6 +451,7 @@
   <div class="footer-logo">PaintWorkz<span> Pro</span></div>
   <div class="footer-links">
     <a href="#features">Features</a>
+    <a href="#demo">Demo</a>
     <a href="#pricing">Pricing</a>
     <a href="#about">About</a>
     <a href="privacy.html">Privacy</a>
@@ -408,7 +462,7 @@
   <div class="footer-copy">© 2026 Paintworkz PTY LTD (ABN 53 688 456 313) · Victoria, Australia · All rights reserved</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   const PADDLE_TOKEN   = 'live_13320be4d57f88a60d7817d2654';
   const PADDLE_SOLO_ID = 'pri_01kk8wzrkz9qwrrs98nsp1yegx';
   const PADDLE_PRO_ID  = 'pri_01kk8x2cqt2983dm2fz9rcekmx';
@@ -428,4 +482,12 @@
   })();
   function upgradeSolo() {
     if (typeof Paddle === 'undefined') { alert('Payment system loading, please try again.'); return; }
-    Paddle.Checkout.open({ items: [{ priceId: PADDLE_SOLO_ID, q
+    Paddle.Checkout.open({ items: [{ priceId: PADDLE_SOLO_ID, quantity: 1 }] });
+  }
+  function upgradePro() {
+    if (typeof Paddle === 'undefined') { alert('Payment system loading, please try again.'); return; }
+    Paddle.Checkout.open({ items: [{ priceId: PADDLE_PRO_ID, quantity: 1 }] });
+  }
+</script>
+</body>
+</html>
