@@ -112,17 +112,13 @@
   .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
   .footer-links a:hover { color: var(--gold); }
   .footer-copy { font-size: 12px; color: var(--muted); width: 100%; text-align: center; margin-top: 8px; }
-
-  /* ── Video section ── */
   #demo { background: var(--dark); position: relative; overflow: hidden; padding: 80px 24px; }
   #demo::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:900px; height:500px; background:radial-gradient(ellipse,rgba(212,175,55,0.07) 0%,transparent 70%); pointer-events:none; }
   .video-player-wrap { position:relative; max-width:880px; margin:0 auto; border-radius:16px; overflow:hidden; border:1px solid rgba(212,175,55,0.25); box-shadow:0 0 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(212,175,55,0.06); }
   .video-chrome-bar { background:#111; padding:10px 16px; display:flex; align-items:center; gap:8px; border-bottom:1px solid rgba(212,175,55,0.1); }
   .chrome-dot { width:11px; height:11px; border-radius:50%; flex-shrink:0; }
   .chrome-url { margin-left:12px; font-size:11px; color:#555; font-family:'DM Mono',monospace; letter-spacing:0.5px; }
-  .demo-video { width:100%; display:block; background:#000; aspect-ratio:16/9; max-height:520px; object-fit:contain; }
   .video-cta { margin-top:36px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
-
   @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
   @media (max-width: 768px) {
     nav { padding: 14px 20px; } .nav-links { display: none; }
@@ -162,24 +158,18 @@
   <p class="hero-note">7 Days Free — Solo Access · No credit card required · Australian made</p>
 </section>
 
-<!-- ── VIDEO SECTION ── -->
 <section id="demo">
   <div class="container" style="text-align:center; position:relative;">
     <span class="section-tag">See It In Action</span>
     <h2 style="margin-bottom:12px;">Watch the<br><em style="font-style:normal;color:var(--gold);">Full Walkthrough</em></h2>
     <p style="font-size:15px;color:var(--muted);max-width:500px;margin:0 auto 40px;font-weight:300;">From measuring a job to generating the invoice — the complete workflow in one take.</p>
-
     <div class="video-player-wrap">
-      <!-- Fake browser chrome -->
       <div class="video-chrome-bar">
         <div class="chrome-dot" style="background:#ff5f56;"></div>
         <div class="chrome-dot" style="background:#ffbd2e;"></div>
         <div class="chrome-dot" style="background:#27c93f;"></div>
         <span class="chrome-url">app.paintworkzpro.com.au</span>
       </div>
-      <!-- YouTube embed — replace er0fj3CmbVc with your actual video ID -->
-      <!-- Upload the tour video to YouTube (Unlisted), then paste the ID here -->
-      <!-- e.g. youtube.com/watch?v=abc123xyz → use abc123xyz -->
       <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; background:#000;">
         <iframe
           src="https://www.youtube.com/embed/er0fj3CmbVc?rel=0&modestbranding=1&color=white&iv_load_policy=3&showinfo=0"
@@ -190,7 +180,6 @@
         </iframe>
       </div>
     </div>
-
     <div class="video-cta">
       <a href="https://app.paintworkzpro.com.au/" class="btn-primary" target="_blank">Try It Free →</a>
       <a href="#pricing" class="btn-secondary">See Pricing</a>
@@ -212,36 +201,12 @@
     <h2>Everything You Need.<br>Nothing You Don't.</h2>
     <p class="section-lead">Purpose-built for spray shops and cabinet &amp; joinery finishers. Not a generic tool crammed into a different industry.</p>
     <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">📐</div>
-        <div class="feature-title">Job Measurement</div>
-        <div class="feature-desc">Enter panels, doors, and surfaces with dimensions. Automatically calculates square meterage and generates parts lists.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">💰</div>
-        <div class="feature-title">Instant Quoting</div>
-        <div class="feature-desc">Your pricing matrix does the maths. Shaker, colonial, flat panels — each profile priced correctly in matt, satin, semi-gloss, or gloss.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🧾</div>
-        <div class="feature-title">PDF Documents</div>
-        <div class="feature-desc">Professional estimates, quotes, and invoices generated instantly. Supply dockets and mixing cards for the spray booth.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🎨</div>
-        <div class="feature-title">2Pac Formula Library</div>
-        <div class="feature-desc">Store and recall paint formulas by job. Never mix the wrong colour again — even 6 months later when the client wants a repaint.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📅</div>
-        <div class="feature-title">Job Scheduling</div>
-        <div class="feature-desc">A3 Gantt-style work schedule across all active jobs. See measure, sand, undercoat, topcoat and complete phases at a glance.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">☁️</div>
-        <div class="feature-title">Cloud Sync</div>
-        <div class="feature-desc">Your jobs and settings sync across devices via Firebase. Start on your phone on site, finish on desktop back at the workshop.</div>
-      </div>
+      <div class="feature-card"><div class="feature-icon">📐</div><div class="feature-title">Job Measurement</div><div class="feature-desc">Enter panels, doors, and surfaces with dimensions. Automatically calculates square meterage and generates parts lists.</div></div>
+      <div class="feature-card"><div class="feature-icon">💰</div><div class="feature-title">Instant Quoting</div><div class="feature-desc">Your pricing matrix does the maths. Shaker, colonial, flat panels — each profile priced correctly in matt, satin, semi-gloss, or gloss.</div></div>
+      <div class="feature-card"><div class="feature-icon">🧾</div><div class="feature-title">PDF Documents</div><div class="feature-desc">Professional estimates, quotes, and invoices generated instantly. Supply dockets and mixing cards for the spray booth.</div></div>
+      <div class="feature-card"><div class="feature-icon">🎨</div><div class="feature-title">2Pac Formula Library</div><div class="feature-desc">Store and recall paint formulas by job. Never mix the wrong colour again — even 6 months later when the client wants a repaint.</div></div>
+      <div class="feature-card"><div class="feature-icon">📅</div><div class="feature-title">Job Scheduling</div><div class="feature-desc">A3 Gantt-style work schedule across all active jobs. See measure, sand, undercoat, topcoat and complete phases at a glance.</div></div>
+      <div class="feature-card"><div class="feature-icon">☁️</div><div class="feature-title">Cloud Sync</div><div class="feature-desc">Your jobs and settings sync across devices via Firebase. Start on your phone on site, finish on desktop back at the workshop.</div></div>
     </div>
   </div>
 </section>
@@ -266,34 +231,10 @@
     <h2>From Measure<br>to Invoice.</h2>
     <p class="section-lead">The full job workflow in one place.</p>
     <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-content">
-          <h3>Measure the job on site</h3>
-          <p>Enter doors, panels, and surfaces with their dimensions directly in the app. Add paint colours and finishes per item. Total SQM calculates instantly.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-content">
-          <h3>Generate your quote</h3>
-          <p>Your pricing matrix applies automatically based on door profile and finish. Add any extra charges. The quote is ready in under a minute.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-content">
-          <h3>Send the paperwork</h3>
-          <p>PDF supply docket to the client, mixing card to the spray booth, and a shop label for each colour. All generated from the same job data — no double entry.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-content">
-          <h3>Invoice when complete</h3>
-          <p>Mark the job done, generate the invoice, and keep the formula on file. When they call back in 6 months for a repaint, you've got everything you need.</p>
-        </div>
-      </div>
+      <div class="step"><div class="step-num">01</div><div class="step-content"><h3>Measure the job on site</h3><p>Enter doors, panels, and surfaces with their dimensions directly in the app. Add paint colours and finishes per item. Total SQM calculates instantly.</p></div></div>
+      <div class="step"><div class="step-num">02</div><div class="step-content"><h3>Generate your quote</h3><p>Your pricing matrix applies automatically based on door profile and finish. Add any extra charges. The quote is ready in under a minute.</p></div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-content"><h3>Send the paperwork</h3><p>PDF supply docket to the client, mixing card to the spray booth, and a shop label for each colour. All generated from the same job data — no double entry.</p></div></div>
+      <div class="step"><div class="step-num">04</div><div class="step-content"><h3>Invoice when complete</h3><p>Mark the job done, generate the invoice, and keep the formula on file. When they call back in 6 months for a repaint, you've got everything you need.</p></div></div>
     </div>
   </div>
 </section>
@@ -426,7 +367,7 @@
     <span class="section-tag">Legal</span>
     <h2>Terms of Service</h2>
     <div class="legal-body">
-      <p><strong>Last updated: March 2026</strong></p>
+      <p><strong>Last updated: April 2026</strong></p>
       <p>By using PaintWorkz Pro you agree to these Terms of Service. Please read them carefully.</p>
       <h3>1. The Service</h3>
       <p>PaintWorkz Pro is a web-based job management application for spray shops and cabinet &amp; joinery finishing businesses, provided by PaintWorkz Pro. The App is accessible at paintworkzpro.com.au and app.paintworkzpro.com.au.</p>
@@ -437,7 +378,7 @@
       <h3>4. Subscriptions &amp; Payment</h3>
       <p>Paid features require a subscription billed monthly: Solo at $49 AUD/month or Pro at $99 AUD/month (exc. GST). Subscriptions are managed and billed by Paddle as our Merchant of Record. By subscribing you also agree to Paddle's terms of service. Subscription fees are charged in advance. You may cancel at any time; cancellation takes effect at the end of the current billing period.</p>
       <h3>5. Refunds</h3>
-      <p>Refund requests within 7 days of initial purchase will be considered. No refunds are issued for partial periods after this window. See our full <a href="refund.html">Refund Policy</a>.</p>
+      <p>Refund requests within 14 days of initial purchase will be considered in accordance with Paddle's refund policy. No refunds are issued for partial periods after this window. See our full <a href="refund.html">Refund Policy</a>.</p>
       <h3>6. Acceptable Use</h3>
       <p>You may use PaintWorkz Pro for legitimate business purposes only. You must not attempt to reverse engineer, copy, or redistribute the software.</p>
       <h3>7. Your Data</h3>
