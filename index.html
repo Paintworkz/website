@@ -25,8 +25,11 @@
   .nav-links a:hover { color: var(--gold); }
   .nav-cta { background: var(--gold); color: #000 !important; padding: 9px 20px; border-radius: 6px; font-weight: 700 !important; }
   .nav-cta:hover { background: var(--gold-light) !important; color: #000 !important; }
-  .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 24px 80px; position: relative; overflow: hidden; }
-  .hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(ellipse, rgba(212,175,55,0.12) 0%, transparent 70%); pointer-events: none; }
+  /* Animated canvas background */
+  #hero-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+  .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 24px 80px; position: relative; overflow: hidden; z-index: 1; }
+  .hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(ellipse, rgba(212,175,55,0.10) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+  .hero > * { position: relative; z-index: 1; }
   .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3); border-radius: 20px; padding: 6px 16px; margin-bottom: 28px; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); animation: fadeDown 0.6s ease both; }
   .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 8vw, 100px); line-height: 0.95; letter-spacing: 3px; color: #fff; margin-bottom: 12px; animation: fadeDown 0.6s ease 0.1s both; }
   .hero h1 em { font-style: normal; color: var(--gold); display: block; }
@@ -135,6 +138,8 @@
 </head>
 <body>
 
+<canvas id="hero-canvas"></canvas>
+
 <nav>
   <a href="#" class="nav-logo">PaintWorkz<span> Pro</span></a>
   <div class="nav-links">
@@ -172,7 +177,7 @@
       </div>
       <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; background:#000;">
         <iframe
-          src="https://www.youtube.com/embed/er0fj3CmbVc?rel=0&modestbranding=1&color=white&iv_load_policy=3&showinfo=0"
+          src="https://www.youtube.com/embed/-ie9ckxr59g?rel=0&modestbranding=1&color=white&iv_load_policy=3&showinfo=0"
           style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
@@ -189,9 +194,9 @@
 </section>
 
 <div class="stats-bar">
-  <div class="stat"><div class="stat-num">10</div><div class="stat-label">Form Types</div></div>
-  <div class="stat"><div class="stat-num">PDF</div><div class="stat-label">Output Ready</div></div>
-  <div class="stat"><div class="stat-num">A3</div><div class="stat-label">Schedule View</div></div>
+  <div class="stat"><div class="stat-num">10</div><div class="stat-label">PDF Form Types</div></div>
+  <div class="stat"><div class="stat-num">6</div><div class="stat-label">Label Sizes</div></div>
+  <div class="stat"><div class="stat-num">A3</div><div class="stat-label">Gantt Schedule</div></div>
   <div class="stat"><div class="stat-num">AUS</div><div class="stat-label">Made in Australia</div></div>
 </div>
 
@@ -201,12 +206,18 @@
     <h2>Everything You Need.<br>Nothing You Don't.</h2>
     <p class="section-lead">Purpose-built for spray shops and cabinet &amp; joinery finishers. Not a generic tool crammed into a different industry.</p>
     <div class="features-grid">
-      <div class="feature-card"><div class="feature-icon">📐</div><div class="feature-title">Job Measurement</div><div class="feature-desc">Enter panels, doors, and surfaces with dimensions. Automatically calculates square meterage and generates parts lists.</div></div>
-      <div class="feature-card"><div class="feature-icon">💰</div><div class="feature-title">Instant Quoting</div><div class="feature-desc">Your pricing matrix does the maths. Shaker, colonial, flat panels — each profile priced correctly in matt, satin, semi-gloss, or gloss.</div></div>
-      <div class="feature-card"><div class="feature-icon">🧾</div><div class="feature-title">PDF Documents</div><div class="feature-desc">Professional estimates, quotes, and invoices generated instantly. Supply dockets and mixing cards for the spray booth.</div></div>
-      <div class="feature-card"><div class="feature-icon">🎨</div><div class="feature-title">2Pac Formula Library</div><div class="feature-desc">Store and recall paint formulas by job. Never mix the wrong colour again — even 6 months later when the client wants a repaint.</div></div>
-      <div class="feature-card"><div class="feature-icon">📅</div><div class="feature-title">Job Scheduling</div><div class="feature-desc">A3 Gantt-style work schedule across all active jobs. See measure, sand, undercoat, topcoat and complete phases at a glance.</div></div>
-      <div class="feature-card"><div class="feature-icon">☁️</div><div class="feature-title">Cloud Sync</div><div class="feature-desc">Your jobs and settings sync across devices via Firebase. Start on your phone on site, finish on desktop back at the workshop.</div></div>
+      <div class="feature-card"><div class="feature-icon">📐</div><div class="feature-title">Job Measurement</div><div class="feature-desc">Enter panels, doors, drawers and custom parts with dimensions. Square meterage calculates instantly. Single-side, double-side, or single-side with edge return — all handled.</div></div>
+      <div class="feature-card"><div class="feature-icon">💰</div><div class="feature-title">Pricing Matrix</div><div class="feature-desc">Full paint pricing matrix per profile and finish — plus a separate Cut To Size matrix with board supply and edge routing rates. Set once, apply to every job automatically.</div></div>
+      <div class="feature-card"><div class="feature-icon">🧾</div><div class="feature-title">10 PDF Form Types</div><div class="feature-desc">Estimate, Quote, Invoice, Supply Docket, Mixing Card, Cover Sheet, Shop Label, Part Labels, Job Labels, and Paint Order — all generated from the same job data. No double entry.</div></div>
+      <div class="feature-card"><div class="feature-icon">🎨</div><div class="feature-title">2Pac Formula Library</div><div class="feature-desc">Store base codes and tinter amounts per colour. Formulas scale automatically to the litres needed. Pull up any colour instantly — even 6 months later for a repaint.</div></div>
+      <div class="feature-card"><div class="feature-icon">📦</div><div class="feature-title">Paint Stock Ledger</div><div class="feature-desc">Track base litres and tint grams on hand. Receive deliveries with one tap, set low-stock alerts, and auto-deduct stock when jobs are completed.</div></div>
+      <div class="feature-card"><div class="feature-icon">📅</div><div class="feature-title">Job Scheduling</div><div class="feature-desc">A3 Gantt-style chart across all active jobs. See Measure, Sand, Undercoat, Topcoat and Complete phases at a glance. Set default phase durations and override per job.</div></div>
+      <div class="feature-card"><div class="feature-icon">🏷️</div><div class="feature-title">Label Printing</div><div class="feature-desc">Print individual part labels on standard Avery sheets — 8, 10, 14 or 21 per A4. Job labels, shop trolley labels, and sticker sheets for courier bundles. QR code on every label links back to the job.</div></div>
+      <div class="feature-card"><div class="feature-icon">🖨️</div><div class="feature-title">Batch Print</div><div class="feature-desc">Select which forms generate automatically when a job is completed — Cover Sheet, Supply Docket, Mixing Card, Labels, Invoice and more all print in one go.</div></div>
+      <div class="feature-card"><div class="feature-icon">📊</div><div class="feature-title">Reports & KPIs</div><div class="feature-desc">Revenue, SQM throughput, top colours, client breakdown, paint quantities and gross margin. Filter by date range, client or job size. Print-ready PDF reports.</div></div>
+      <div class="feature-card"><div class="feature-icon">🎨</div><div class="feature-title">Colour Surcharges</div><div class="feature-desc">Set percentage surcharges for Standard, Light, Dark and Extra Tint colours automatically. Delivery regions, freight charges and GST all configurable per job.</div></div>
+      <div class="feature-card"><div class="feature-icon">👷</div><div class="feature-title">Staff Accounts</div><div class="feature-desc">Create shop floor logins with email and a 4-digit PIN. Staff can view jobs, history, supply dockets and mixing cards — but can't see pricing, estimates, quotes or admin.</div></div>
+      <div class="feature-card"><div class="feature-icon">☁️</div><div class="feature-title">Cloud Sync & Backups</div><div class="feature-desc">Jobs and settings sync across all devices. Download a full backup any time, or run the companion script for automated nightly backups to your external drive — 30-day rotating archive.</div></div>
     </div>
   </div>
 </section>
@@ -221,6 +232,8 @@
       <div class="free-chip"><span class="ico">📅</span> A3 Schedule</div>
       <div class="free-chip"><span class="ico">📂</span> 3 Full Jobs</div>
       <div class="free-chip"><span class="ico">👥</span> Client Database</div>
+      <div class="free-chip"><span class="ico">🏷️</span> Shop Labels</div>
+      <div class="free-chip"><span class="ico">📦</span> Supply Docket</div>
     </div>
   </div>
 </section>
@@ -231,10 +244,11 @@
     <h2>From Measure<br>to Invoice.</h2>
     <p class="section-lead">The full job workflow in one place.</p>
     <div class="steps">
-      <div class="step"><div class="step-num">01</div><div class="step-content"><h3>Measure the job on site</h3><p>Enter doors, panels, and surfaces with their dimensions directly in the app. Add paint colours and finishes per item. Total SQM calculates instantly.</p></div></div>
-      <div class="step"><div class="step-num">02</div><div class="step-content"><h3>Generate your quote</h3><p>Your pricing matrix applies automatically based on door profile and finish. Add any extra charges. The quote is ready in under a minute.</p></div></div>
-      <div class="step"><div class="step-num">03</div><div class="step-content"><h3>Send the paperwork</h3><p>PDF supply docket to the client, mixing card to the spray booth, and a shop label for each colour. All generated from the same job data — no double entry.</p></div></div>
-      <div class="step"><div class="step-num">04</div><div class="step-content"><h3>Invoice when complete</h3><p>Mark the job done, generate the invoice, and keep the formula on file. When they call back in 6 months for a repaint, you've got everything you need.</p></div></div>
+      <div class="step"><div class="step-num">01</div><div class="step-content"><h3>Measure the job on site</h3><p>Enter doors, panels, drawers and custom parts with dimensions directly in the app. Choose paint mode (single-side, double-side, edge return), profile, finish and colour per part. Total SQM calculates instantly. Add job reference photos for packaging or delivery records.</p></div></div>
+      <div class="step"><div class="step-num">02</div><div class="step-content"><h3>Generate your quote</h3><p>Your pricing matrix applies automatically based on door profile and finish — including Cut To Size board supply and edge routing if needed. Add colour surcharges, delivery regions, freight and any other charges. The quote is ready in under a minute.</p></div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-content"><h3>Print all the paperwork at once</h3><p>Batch print generates every form in one go — Supply Docket to the client, Mixing Card to the spray booth, Shop Label and Part Labels on Avery sheets for the job trolley. All from the same job data. No double entry, no re-typing.</p></div></div>
+      <div class="step"><div class="step-num">04</div><div class="step-content"><h3>Track stock as you spray</h3><p>The Paint Stock Ledger auto-deducts base litres and tinter grams as jobs complete. Low-stock alerts fire when you're running thin. Receive a delivery in two taps and the ledger updates instantly.</p></div></div>
+      <div class="step"><div class="step-num">05</div><div class="step-content"><h3>Invoice and keep the formula on file</h3><p>Mark the job done, generate the invoice, and the 2Pac formula stays in the library. When they call back for a repaint — next week or next year — every detail is already there.</p></div></div>
     </div>
   </div>
 </section>
@@ -254,10 +268,12 @@
           <li><span class="tick">✓</span> Create &amp; save up to 3 jobs</li>
           <li><span class="tick">✓</span> Full measurement sheet</li>
           <li><span class="tick">✓</span> Mixing cards &amp; shop labels</li>
+          <li><span class="tick">✓</span> Supply dockets</li>
           <li><span class="tick">✓</span> A3 job schedule</li>
           <li><span class="tick">✓</span> Client database</li>
           <li><span class="dim">✗</span> <span class="dim">Unlimited jobs</span></li>
           <li><span class="dim">✗</span> <span class="dim">Estimates, quotes &amp; invoices</span></li>
+          <li><span class="dim">✗</span> <span class="dim">Stock ledger &amp; reports</span></li>
         </ul>
         <a href="https://app.paintworkzpro.com.au/" class="btn-tier btn-tier-outline">Get Started Free</a>
       </div>
@@ -271,10 +287,15 @@
           <li><span class="tick">✓</span> Unlimited jobs</li>
           <li><span class="tick">✓</span> Full measurement sheet</li>
           <li><span class="tick">✓</span> Supply dockets &amp; mixing cards</li>
+          <li><span class="tick">✓</span> Part labels &amp; job labels</li>
+          <li><span class="tick">✓</span> Cover sheet &amp; paint order PDF</li>
           <li><span class="tick">✓</span> Paint formula library</li>
-          <li><span class="tick">✓</span> Cloud sync across devices</li>
+          <li><span class="tick">✓</span> Paint stock ledger</li>
+          <li><span class="tick">✓</span> Cloud sync &amp; backups</li>
+          <li><span class="tick">✓</span> A3 schedule &amp; notifications</li>
           <li><span class="dim">✗</span> <span class="dim">Estimates, quotes &amp; invoices</span></li>
           <li><span class="dim">✗</span> <span class="dim">Pricing matrix &amp; staff logins</span></li>
+          <li><span class="dim">✗</span> <span class="dim">Reports &amp; KPIs</span></li>
         </ul>
         <button onclick="upgradeSolo()" class="btn-tier btn-tier-outline" style="width:100%; cursor:pointer;">Start 7-Day Trial →</button>
       </div>
@@ -287,11 +308,15 @@
         <ul class="tier-features">
           <li><span class="tick">✓</span> Everything in Solo</li>
           <li><span class="tick">✓</span> Estimates, quotes &amp; invoices</li>
-          <li><span class="tick">✓</span> Pricing matrix editor</li>
-          <li><span class="tick">✓</span> Business reports &amp; KPIs</li>
-          <li><span class="tick">✓</span> Admin &amp; staff logins</li>
-          <li><span class="tick">✓</span> Staff can't see pricing</li>
+          <li><span class="tick">✓</span> Credit notes</li>
+          <li><span class="tick">✓</span> Paint &amp; Cut To Size pricing matrix</li>
           <li><span class="tick">✓</span> Batch PDF printing</li>
+          <li><span class="tick">✓</span> Business reports &amp; KPIs</li>
+          <li><span class="tick">✓</span> Paint coverage &amp; cost analysis</li>
+          <li><span class="tick">✓</span> Admin &amp; staff logins (PIN)</li>
+          <li><span class="tick">✓</span> Staff can't see pricing</li>
+          <li><span class="tick">✓</span> Automated overnight backups</li>
+          <li><span class="tick">✓</span> Shop closures &amp; public holidays</li>
           <li><span class="tick">✓</span> Priority support</li>
         </ul>
         <button onclick="upgradePro()" class="btn-tier btn-tier-gold" style="width:100%; cursor:pointer;">Upgrade to Pro →</button>
@@ -321,7 +346,11 @@
           <li><span class="icon">🔒</span> Secure Firebase authentication</li>
           <li><span class="icon">☁️</span> Your data syncs across all devices</li>
           <li><span class="icon">📴</span> Works offline — syncs when back online</li>
-          <li><span class="icon">🖨️</span> Professional PDF output every time</li>
+          <li><span class="icon">🖨️</span> 10 professional PDF form types</li>
+          <li><span class="icon">🏷️</span> Avery label printing built in</li>
+          <li><span class="icon">📦</span> Live paint stock ledger</li>
+          <li><span class="icon">📊</span> Full business reports &amp; KPIs</li>
+          <li><span class="icon">🌍</span> Metric, imperial &amp; multi-currency</li>
           <li><span class="icon">🎨</span> 2Pac formula library built in</li>
           <li><span class="icon">💳</span> Payments by Paddle — cancel any time</li>
         </ul>
@@ -407,6 +436,103 @@
   </div>
   <div class="footer-copy">© 2026 Colin Bedford (ABN 90 419 649 257) · Victoria, Australia · All rights reserved</div>
 </footer>
+
+<script>
+/* ── Spray-paint particle background ── */
+(function() {
+  const canvas = document.getElementById('hero-canvas');
+  const ctx = canvas.getContext('2d');
+  const GOLD = [212, 175, 55];
+  const AMBER = [240, 180, 40];
+  const WHITE = [255, 255, 255];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  /* Slow drifting orbs — like the blobs on your login page */
+  const orbs = Array.from({length: 6}, (_, i) => ({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    r: 180 + Math.random() * 280,
+    dx: (Math.random() - 0.5) * 0.18,
+    dy: (Math.random() - 0.5) * 0.14,
+    hue: i % 2 === 0 ? GOLD : (i % 3 === 0 ? AMBER : WHITE),
+    alpha: 0.04 + Math.random() * 0.055,
+    phase: Math.random() * Math.PI * 2,
+    phaseSpeed: 0.002 + Math.random() * 0.003
+  }));
+
+  /* Fine mist particles — tiny specks floating like overspray */
+  const mist = Array.from({length: 90}, () => ({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    r: 0.8 + Math.random() * 2.2,
+    dx: (Math.random() - 0.5) * 0.25,
+    dy: -0.08 - Math.random() * 0.2,
+    alpha: 0.06 + Math.random() * 0.18,
+    color: Math.random() > 0.6 ? GOLD : WHITE
+  }));
+
+  /* Slow scan lines — subtle horizontal banding for depth */
+  function drawScanLines() {
+    ctx.save();
+    for (let y = 0; y < canvas.height; y += 4) {
+      ctx.fillStyle = `rgba(0,0,0,${y % 8 === 0 ? 0.018 : 0.006})`;
+      ctx.fillRect(0, y, canvas.width, 1);
+    }
+    ctx.restore();
+  }
+
+  let frame = 0;
+  function tick() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    /* Draw orbs */
+    orbs.forEach(o => {
+      o.phase += o.phaseSpeed;
+      o.x += o.dx + Math.sin(o.phase * 0.7) * 0.12;
+      o.y += o.dy + Math.cos(o.phase * 0.5) * 0.09;
+      if (o.x < -o.r) o.x = canvas.width + o.r;
+      if (o.x > canvas.width + o.r) o.x = -o.r;
+      if (o.y < -o.r) o.y = canvas.height + o.r;
+      if (o.y > canvas.height + o.r) o.y = -o.r;
+
+      const g = ctx.createRadialGradient(o.x, o.y, 0, o.x, o.y, o.r);
+      const [r, g2, b] = o.hue;
+      g.addColorStop(0, `rgba(${r},${g2},${b},${o.alpha})`);
+      g.addColorStop(0.5, `rgba(${r},${g2},${b},${o.alpha * 0.3})`);
+      g.addColorStop(1, `rgba(${r},${g2},${b},0)`);
+      ctx.beginPath();
+      ctx.arc(o.x, o.y, o.r, 0, Math.PI * 2);
+      ctx.fillStyle = g;
+      ctx.fill();
+    });
+
+    /* Draw mist particles */
+    mist.forEach(p => {
+      p.x += p.dx;
+      p.y += p.dy;
+      if (p.y < -10) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; }
+      if (p.x < -10) p.x = canvas.width + 10;
+      if (p.x > canvas.width + 10) p.x = -10;
+      const [r, g2, b] = p.color;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${r},${g2},${b},${p.alpha})`;
+      ctx.fill();
+    });
+
+    drawScanLines();
+    frame++;
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+</script>
 
 <script>
   const PADDLE_TOKEN   = 'live_13320be4d57f88a60d7817d2654';
