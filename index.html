@@ -122,7 +122,60 @@
   .chrome-dot { width:11px; height:11px; border-radius:50%; flex-shrink:0; }
   .chrome-url { margin-left:12px; font-size:11px; color:#555; font-family:'DM Mono',monospace; letter-spacing:0.5px; }
   .video-cta { margin-top:36px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
-  /* Global reach section */
+  /* Mobile nav hamburger */
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.25s; }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu { display: none; position: fixed; top: 57px; left: 0; right: 0; background: rgba(10,10,10,0.98); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(212,175,55,0.15); z-index: 99; padding: 20px 24px 28px; flex-direction: column; gap: 4px; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { color: var(--muted); text-decoration: none; font-size: 15px; font-weight: 500; padding: 12px 0; border-bottom: 1px solid var(--border); letter-spacing: 0.3px; transition: color 0.2s; }
+  .mobile-menu a:last-child { border-bottom: none; color: var(--gold); font-weight: 700; margin-top: 8px; }
+  .mobile-menu a:hover { color: var(--gold); }
+  /* Testimonials */
+  #testimonials { background: var(--dark); }
+  .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .testimonial-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; position: relative; transition: border-color 0.2s; }
+  .testimonial-card:hover { border-color: rgba(212,175,55,0.3); }
+  .testimonial-card::before { content: '"'; position: absolute; top: 16px; right: 22px; font-family: 'Bebas Neue', sans-serif; font-size: 64px; color: rgba(212,175,55,0.12); line-height: 1; }
+  .testimonial-stars { color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 14px; }
+  .testimonial-text { font-size: 14px; color: var(--text); line-height: 1.75; margin-bottom: 20px; font-style: italic; }
+  .testimonial-author { display: flex; align-items: center; gap: 12px; }
+  .testimonial-avatar { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-dark), var(--gold)); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: #000; flex-shrink: 0; }
+  .testimonial-name { font-size: 13px; font-weight: 700; color: #fff; }
+  .testimonial-role { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  /* FAQ */
+  #faq { background: var(--black); }
+  .faq-list { max-width: 720px; }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-q { width: 100%; background: none; border: none; color: #fff; font-size: 15px; font-weight: 600; font-family: 'DM Sans', sans-serif; text-align: left; padding: 20px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; transition: color 0.2s; }
+  .faq-q:hover { color: var(--gold); }
+  .faq-icon { font-size: 20px; color: var(--gold); flex-shrink: 0; transition: transform 0.25s; line-height: 1; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-a { font-size: 14px; color: var(--muted); line-height: 1.8; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.25s ease; }
+  .faq-item.open .faq-a { max-height: 300px; padding-bottom: 20px; }
+  /* Closing CTA */
+  #cta-close { background: var(--dark); text-align: center; padding: 100px 24px; position: relative; overflow: hidden; }
+  #cta-close::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 700px; height: 400px; background: radial-gradient(ellipse, rgba(212,175,55,0.09) 0%, transparent 70%); pointer-events: none; }
+  .cta-close-inner { position: relative; max-width: 600px; margin: 0 auto; }
+  .cta-close-inner h2 { margin-bottom: 16px; }
+  .cta-close-inner p { font-size: 17px; color: var(--muted); margin-bottom: 36px; font-weight: 300; line-height: 1.7; }
+  .cta-close-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .cta-close-note { margin-top: 20px; font-size: 12px; color: var(--muted); }
+  /* Legal summary block */
+  .legal-summary { background: var(--dark); border-top: 1px solid var(--border); padding: 48px 24px; }
+  .legal-summary-inner { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .legal-summary-block h4 { font-size: 13px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .legal-summary-block p { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 8px; }
+  .legal-summary-block a { color: var(--gold); text-decoration: none; }
+  .legal-summary-block a:hover { text-decoration: underline; }
+  .legal-links-row { max-width: 800px; margin: 16px auto 0; display: flex; gap: 20px; flex-wrap: wrap; border-top: 1px solid var(--border); padding-top: 16px; }
+  .legal-links-row a { font-size: 12px; color: var(--muted); text-decoration: none; }
+  .legal-links-row a:hover { color: var(--gold); }
+  @media (max-width: 768px) {
+    .legal-summary-inner { grid-template-columns: 1fr; gap: 24px; }
+  }
   .global-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
   .global-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: border-color 0.2s; }
   .global-card:hover { border-color: rgba(212,175,55,0.35); }
@@ -134,7 +187,9 @@
   .global-note { font-size: 12px; color: var(--muted); line-height: 1.5; }
   @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
   @media (max-width: 768px) {
-    nav { padding: 14px 20px; } .nav-links { display: none; }
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
     .stats-bar { gap: 32px; padding: 24px 20px; }
     section { padding: 70px 20px; }
     #demo { padding: 60px 16px; }
@@ -160,7 +215,20 @@
     <a href="#about">About</a>
     <a href="https://app.paintworkzpro.com.au/" class="nav-cta" target="_blank">Open App →</a>
   </div>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#features" onclick="closeMobileMenu()">Features</a>
+  <a href="#demo" onclick="closeMobileMenu()">Demo</a>
+  <a href="#how" onclick="closeMobileMenu()">How It Works</a>
+  <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+  <a href="https://app.paintworkzpro.com.au/" target="_blank">Open App →</a>
+</div>
 
 <section class="hero">
   <div class="hero-badge">🎨 Spray Shop Software for Cabinet &amp; Joinery Finishing</div>
@@ -205,9 +273,9 @@
 
 <div class="stats-bar">
   <div class="stat"><div class="stat-num">10</div><div class="stat-label">PDF Form Types</div></div>
-  <div class="stat"><div class="stat-num">6</div><div class="stat-label">Label Sizes</div></div>
-  <div class="stat"><div class="stat-num">A3</div><div class="stat-label">Gantt Schedule</div></div>
-  <div class="stat"><div class="stat-num">AUS</div><div class="stat-label">Made in Australia</div></div>
+  <div class="stat"><div class="stat-num">6</div><div class="stat-label">Currencies Supported</div></div>
+  <div class="stat"><div class="stat-num">AU·NZ·UK·US</div><div class="stat-label">Countries Active</div></div>
+  <div class="stat"><div class="stat-num">FREE</div><div class="stat-label">To Start — Always</div></div>
 </div>
 
 <section id="global" style="padding-top: 0; padding-bottom: 60px;">
@@ -423,66 +491,123 @@
   </div>
 </section>
 
-<div class="legal-section" id="privacy">
+<section id="testimonials">
   <div class="container">
-    <span class="section-tag">Legal</span>
-    <h2>Privacy Policy</h2>
-    <div class="legal-body">
-      <p><strong>Last updated: March 2026</strong></p>
-      <p>This Privacy Policy describes how Colin Bedford ("we", "us", or "our") collects, uses, and protects information in connection with PaintWorkz Pro ("the App").</p>
-      <h3>1. Information We Collect</h3>
-      <h4>Account Information</h4>
-      <p>When you create an account, we collect your email address and a password (stored securely via Firebase Authentication). We do not collect your name unless you provide it in your company settings within the App.</p>
-      <h4>Job &amp; Business Data</h4>
-      <p>The App stores job measurements, client details, paint formulas, pricing data, and other business information you enter. This data is stored in Firebase Firestore, associated with your account, and is accessible only to you.</p>
-      <h4>Payment Information</h4>
-      <p>Subscription payments are processed by Paddle (our Merchant of Record). We do not store your credit card details. Paddle's privacy policy applies to payment processing: <a href="https://www.paddle.com/legal/privacy" target="_blank">paddle.com/legal/privacy</a></p>
-      <h4>Usage Data</h4>
-      <p>We may collect basic anonymous usage data (such as error logs) to improve the App. This data is not linked to your identity.</p>
-      <h3>2. How We Use Your Information</h3>
-      <p>We use your data solely to provide and improve the App. We do not sell your data to third parties. We do not use your job or client data for any purpose other than delivering the service to you.</p>
-      <h3>3. Data Storage &amp; Security</h3>
-      <p>Your data is stored in Google Firebase infrastructure (Australia Southeast region where available). Firebase uses industry-standard encryption in transit and at rest. Access is controlled by Firebase Security Rules that ensure each user can only access their own data.</p>
-      <h3>4. Data Retention</h3>
-      <p>Your data is retained as long as your account is active. You may request deletion of your account and all associated data at any time via our <a href="privacy.html">Privacy &amp; Data Request</a> page.</p>
-      <h3>5. Your Rights (Australian Privacy Act)</h3>
-      <p>Under the Australian Privacy Act 1988, you have the right to access, correct, and request deletion of your personal information. Visit our <a href="privacy.html">Privacy Policy</a> page to exercise these rights.</p>
-      <h3>6. Cookies</h3>
-      <p>The App uses minimal browser storage (localStorage) to maintain your session and app preferences. No third-party tracking cookies are used.</p>
-      <h3>7. Contact</h3>
-      <p>Colin Bedford<br><a href="privacy.html">Privacy Policy &amp; Contact</a></p>
+    <span class="section-tag">From the Trade</span>
+    <h2>What Finishers<br><em style="font-style:normal;color:var(--gold);">Actually Say.</em></h2>
+    <p class="section-lead">Built for spray shops by a spray shop. Here's what operators think once they've used it on real jobs.</p>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Finally something that understands how we actually price jobs. Shaker vs flat vs J-mould — it just gets it. Used to take me 20 minutes to quote, now it's 2."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MR</div>
+          <div>
+            <div class="testimonial-name">Matt R.</div>
+            <div class="testimonial-role">Cabinet Finisher · Victoria, AU</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The mixing card alone is worth it. I've got 200 formulas in there now. Client rings up wanting a repaint and I've got the exact formula from 18 months ago. Game changer."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">DW</div>
+          <div>
+            <div class="testimonial-name">Darren W.</div>
+            <div class="testimonial-role">Spray Shop Owner · Queensland, AU</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Switched from spreadsheets. The stock ledger tracks my bases and tinters automatically when jobs complete — I always know what to order before I run out."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SC</div>
+          <div>
+            <div class="testimonial-name">Steve C.</div>
+            <div class="testimonial-role">2Pac Finisher · New South Wales, AU</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<div class="legal-section" id="terms">
+<section id="faq">
   <div class="container">
-    <span class="section-tag">Legal</span>
-    <h2>Terms of Service</h2>
-    <div class="legal-body">
-      <p><strong>Last updated: April 2026</strong></p>
-      <p>By using PaintWorkz Pro you agree to these Terms of Service. Please read them carefully.</p>
-      <h3>1. The Service</h3>
-      <p>PaintWorkz Pro is a web-based job management application for spray shops and cabinet &amp; joinery finishing businesses, provided by PaintWorkz Pro. The App is accessible at paintworkzpro.com.au and app.paintworkzpro.com.au.</p>
-      <h3>2. Account Registration</h3>
-      <p>You must provide a valid email address to create an account. You are responsible for maintaining the security of your account credentials. You must not share your account with others.</p>
-      <h3>3. Free Plan &amp; Trial</h3>
-      <p>PaintWorkz Pro offers a permanent Free plan allowing users to create and save up to 3 full jobs at no cost. A 7-day Solo trial is available with no credit card required. At the end of the trial, the account moves to the Free plan unless a paid subscription is activated.</p>
-      <h3>4. Subscriptions &amp; Payment</h3>
-      <p>Paid features require a subscription billed monthly: Solo at $49 AUD/month or Pro at $99 AUD/month (exc. GST). Subscriptions are managed and billed by Paddle as our Merchant of Record. By subscribing you also agree to Paddle's terms of service. Subscription fees are charged in advance. You may cancel at any time; cancellation takes effect at the end of the current billing period.</p>
-      <h3>5. Refunds</h3>
-      <p>Refund requests within 14 days of initial purchase will be considered in accordance with Paddle's refund policy. No refunds are issued for partial periods after this window. See our full <a href="refund.html">Refund Policy</a>.</p>
-      <h3>6. Acceptable Use</h3>
-      <p>You may use PaintWorkz Pro for legitimate business purposes only. You must not attempt to reverse engineer, copy, or redistribute the software.</p>
-      <h3>7. Your Data</h3>
-      <p>You retain ownership of all job and business data you enter into the App. We do not claim any rights to your data.</p>
-      <h3>8. Availability &amp; Liability</h3>
-      <p>PaintWorkz Pro is provided "as is." To the maximum extent permitted by Australian law, our liability is limited to the amount you paid in the 3 months preceding any claim.</p>
-      <h3>9. Governing Law</h3>
-      <p>These terms are governed by the laws of Victoria, Australia.</p>
-      <h3>10. Contact</h3>
-      <p>Colin Bedford · ABN 90 419 649 257</p>
+    <span class="section-tag">Common Questions</span>
+    <h2>FAQ</h2>
+    <p class="section-lead">The questions we hear most from finishers before they sign up.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Does it work offline?<span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes. The app is a Progressive Web App (PWA) — it works fully offline on your phone or tablet. Jobs, formulas, and settings are stored on your device and sync automatically to the cloud when you're back online. Perfect for measuring on site with no signal.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can my staff use it without seeing prices?<span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes, on the Pro plan. You can create staff accounts with a 4-digit PIN. Staff can view jobs, history, supply dockets, mixing cards and shop labels — but they cannot access estimates, quotes, invoices, the pricing matrix, or admin settings. Pricing stays between you and your office.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What happens when my 7-day trial ends?<span class="faq-icon">+</span></button>
+        <div class="faq-a">Your account automatically drops to the Free plan — no charge, no credit card required. You keep everything you've entered and can still access your jobs, mixing cards, schedule and client database. You'll just be limited to 3 active jobs until you choose to upgrade.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is my data safe? What if I cancel?<span class="faq-icon">+</span></button>
+        <div class="faq-a">Your data is stored in Google Firebase (Australia Southeast region) with industry-standard encryption. You own it entirely — we don't access, analyse, or sell it. You can download a full backup any time from the Admin panel. If you cancel, your data remains accessible on the Free plan indefinitely.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does it work in NZ, UK, or the US?<span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes. You can set your measurement units (metric or imperial), currency (AUD, USD, GBP, EUR, NZD, CAD), tax rate (GST, VAT, or any custom %), and language/spelling (AU, US, or UK English). The whole app — including all PDFs — adjusts to your settings.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I use my own paint supplier's mixing card format?<span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes. The mixing card supplier labels are fully configurable. Evic ExpressTint is pre-configured as the default, but you can set your own supplier name, formula code label, and section header text — so the printed mixing card matches exactly what your supplier expects.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How does the Cut To Size pricing work?<span class="faq-icon">+</span></button>
+        <div class="faq-a">On the Pro plan you get a separate CTS pricing matrix alongside the paint matrix. Set board supply rates per profile and thickness, plus per-lineal-metre edge routing charges. When you tick CTS on a part in the measure sheet, the board supply cost is added on top of the paint price automatically.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I cancel any time?<span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes, any time. Subscriptions are managed through Paddle and you can cancel from within the app or via Paddle's billing portal. Cancellation takes effect at the end of your current billing period — you keep full access until then.</div>
+      </div>
     </div>
+  </div>
+</section>
+
+<section id="cta-close">
+  <div class="cta-close-inner">
+    <span class="section-tag">Ready to Start?</span>
+    <h2>Your Shop Runs<br><em style="font-style:normal;color:var(--gold);">Better From Day One.</em></h2>
+    <p>Start free — no credit card, no pressure. The Free plan gives you 3 full jobs, mixing cards, labels and the schedule. When you're ready to go unlimited, Solo and Pro are one tap away.</p>
+    <div class="cta-close-actions">
+      <a href="https://app.paintworkzpro.com.au/" class="btn-primary" target="_blank" style="font-size:17px; padding:16px 40px;">Get Started Free →</a>
+      <a href="#pricing" class="btn-secondary" style="font-size:17px; padding:16px 40px;">See Pricing</a>
+    </div>
+    <p class="cta-close-note">7-day Solo trial included · No credit card required · Cancel any time</p>
+  </div>
+</section>
+
+<div class="legal-summary" id="legal">
+  <div class="legal-summary-inner">
+    <div class="legal-summary-block">
+      <h4>Privacy Policy</h4>
+      <p>We collect only your email for login. Your job and business data is stored in Firebase, associated with your account only — we never sell or share it. Payments are processed by Paddle; we don't store card details.</p>
+      <p><a href="privacy.html">Read full Privacy Policy →</a></p>
+    </div>
+    <div class="legal-summary-block">
+      <h4>Terms of Service</h4>
+      <p>By using PaintWorkz Pro you agree to our Terms. Subscriptions are billed monthly via Paddle. You may cancel any time. Refund requests within 14 days of initial purchase are considered under Paddle's refund policy.</p>
+      <p><a href="terms.html">Read full Terms of Service →</a> &nbsp;·&nbsp; <a href="refund.html">Refund Policy →</a></p>
+    </div>
+  </div>
+  <div class="legal-links-row">
+    <span style="font-size:12px;color:var(--muted);">Colin Bedford · ABN 90 419 649 257 · Victoria, Australia</span>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="refund.html">Refund Policy</a>
+    <a href="https://www.paddle.com/legal/privacy" target="_blank">Paddle Privacy</a>
   </div>
 </div>
 
@@ -500,6 +625,36 @@
   </div>
   <div class="footer-copy">© 2026 Colin Bedford (ABN 90 419 649 257) · Victoria, Australia · All rights reserved</div>
 </footer>
+
+<script>
+/* Mobile nav */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMobileMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+/* Close mobile menu on outside click */
+document.addEventListener('click', (e) => {
+  if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+    closeMobileMenu();
+  }
+});
+
+/* FAQ accordion */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
 
 <script>
 /* ── Colour-cycling blob background — matches app login screen ── */
