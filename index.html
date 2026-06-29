@@ -122,7 +122,23 @@
   .chrome-dot { width:11px; height:11px; border-radius:50%; flex-shrink:0; }
   .chrome-url { margin-left:12px; font-size:11px; color:#555; font-family:'DM Mono',monospace; letter-spacing:0.5px; }
   .video-cta { margin-top:36px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+  /* Global reach section */
+  .global-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .global-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: border-color 0.2s; }
+  .global-card:hover { border-color: rgba(212,175,55,0.35); }
+  .global-icon { font-size: 24px; margin-bottom: 10px; }
+  .global-title { font-weight: 700; font-size: 15px; color: #fff; margin-bottom: 12px; }
+  .global-options { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .global-chip { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--muted); letter-spacing: 0.3px; }
+  .global-chip.active { background: rgba(212,175,55,0.12); border-color: rgba(212,175,55,0.4); color: var(--gold); }
+  .global-note { font-size: 12px; color: var(--muted); line-height: 1.5; }
   @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+  /* Painter character */
+  .hero-painter { position: absolute; bottom: 0; right: clamp(20px, 6vw, 120px); width: clamp(90px, 12vw, 160px); pointer-events: none; z-index: 2; animation: painterBob 4s ease-in-out infinite; }
+  .painter-svg { width: 100%; height: auto; filter: drop-shadow(0 8px 24px rgba(212,175,55,0.25)); }
+  .spray-mist { animation: mistPulse 1.8s ease-in-out infinite; transform-origin: 88px 110px; }
+  @keyframes painterBob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  @keyframes mistPulse { 0%,100% { opacity: 0.6; transform: scale(1); } 50% { opacity: 1; transform: scale(1.25); } }
   @media (max-width: 768px) {
     nav { padding: 14px 20px; } .nav-links { display: none; }
     .stats-bar { gap: 32px; padding: 24px 20px; }
@@ -132,6 +148,7 @@
     .tier { border-right: none; border-bottom: 1px solid var(--border); } .tier:last-child { border-bottom: none; }
     .about-inner { grid-template-columns: 1fr; gap: 40px; }
     footer { flex-direction: column; text-align: center; padding: 32px 20px; }
+    .hero-painter { width: 80px; right: 10px; }
   }
 </style>
 <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
@@ -160,7 +177,66 @@
     <a href="https://app.paintworkzpro.com.au/" class="btn-primary" target="_blank">Get Started Free →</a>
     <a href="#demo" class="btn-secondary">▶ Watch Demo</a>
   </div>
-  <p class="hero-note">7 Days Free — Solo Access · No credit card required · Australian made</p>
+  <p class="hero-note">7 Days Free — Solo Access · No credit card required · Australian made · Works worldwide</p>
+
+  <!-- Painter character -->
+  <div class="hero-painter" aria-hidden="true">
+    <svg viewBox="0 0 120 200" xmlns="http://www.w3.org/2000/svg" class="painter-svg">
+      <!-- spray gun mist -->
+      <g class="spray-mist">
+        <circle cx="97" cy="108" r="3.5" fill="rgba(212,175,55,0.5)"/>
+        <circle cx="106" cy="103" r="2.5" fill="rgba(212,175,55,0.35)"/>
+        <circle cx="112" cy="110" r="2" fill="rgba(212,175,55,0.25)"/>
+        <circle cx="103" cy="116" r="2" fill="rgba(180,100,220,0.3)"/>
+        <circle cx="115" cy="101" r="1.5" fill="rgba(40,160,200,0.3)"/>
+        <circle cx="109" cy="119" r="1.5" fill="rgba(212,175,55,0.2)"/>
+        <circle cx="118" cy="108" r="1.5" fill="rgba(212,175,55,0.15)"/>
+      </g>
+      <!-- respirator mask -->
+      <rect x="38" y="62" width="34" height="22" rx="8" fill="#555" opacity="0.9"/>
+      <rect x="42" y="66" width="12" height="14" rx="4" fill="#333"/>
+      <rect x="56" y="66" width="12" height="14" rx="4" fill="#333"/>
+      <circle cx="48" cy="73" r="4" fill="#444"/>
+      <circle cx="62" cy="73" r="4" fill="#444"/>
+      <!-- head -->
+      <ellipse cx="55" cy="48" rx="19" ry="21" fill="#f5c89a"/>
+      <!-- safety glasses -->
+      <rect x="37" y="42" width="14" height="10" rx="4" fill="rgba(40,160,200,0.45)" stroke="rgba(40,160,200,0.8)" stroke-width="1.2"/>
+      <rect x="59" y="42" width="14" height="10" rx="4" fill="rgba(40,160,200,0.45)" stroke="rgba(40,160,200,0.8)" stroke-width="1.2"/>
+      <line x1="51" y1="46" x2="59" y2="46" stroke="rgba(40,160,200,0.8)" stroke-width="1.2"/>
+      <!-- overalls body -->
+      <rect x="28" y="84" width="54" height="72" rx="10" fill="#d4af37"/>
+      <!-- overalls chest pocket -->
+      <rect x="32" y="90" width="16" height="12" rx="3" fill="rgba(0,0,0,0.15)"/>
+      <line x1="36" y1="95" x2="44" y2="95" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+      <!-- overalls bib straps -->
+      <rect x="42" y="84" width="8" height="20" rx="4" fill="#c09a28"/>
+      <rect x="60" y="84" width="8" height="14" rx="4" fill="#c09a28"/>
+      <!-- left arm -->
+      <rect x="16" y="86" width="16" height="44" rx="8" fill="#d4af37"/>
+      <!-- right arm holding spray gun -->
+      <rect x="74" y="86" width="16" height="38" rx="8" fill="#d4af37"/>
+      <!-- spray gun handle -->
+      <rect x="86" y="104" width="8" height="16" rx="3" fill="#666"/>
+      <!-- spray gun barrel -->
+      <rect x="82" y="98" width="22" height="8" rx="3" fill="#555"/>
+      <rect x="100" y="99" width="6" height="6" rx="1" fill="#888"/>
+      <!-- trigger -->
+      <rect x="90" y="104" width="4" height="8" rx="2" fill="#888"/>
+      <!-- legs -->
+      <rect x="31" y="148" width="20" height="36" rx="8" fill="#c09a28"/>
+      <rect x="59" y="148" width="20" height="36" rx="8" fill="#c09a28"/>
+      <!-- boots -->
+      <ellipse cx="41" cy="184" rx="13" ry="6" fill="#333"/>
+      <ellipse cx="69" cy="184" rx="13" ry="6" fill="#333"/>
+      <!-- safety hat -->
+      <ellipse cx="55" cy="30" rx="24" ry="7" fill="#d4af37"/>
+      <rect x="35" y="24" width="40" height="10" rx="5" fill="#e6c040"/>
+      <rect x="38" y="20" width="34" height="10" rx="5" fill="#e6c040"/>
+      <!-- hat brim shadow -->
+      <ellipse cx="55" cy="30" rx="24" ry="4" fill="rgba(0,0,0,0.1)"/>
+    </svg>
+  </div>
 </section>
 
 <section id="demo">
@@ -199,6 +275,60 @@
   <div class="stat"><div class="stat-num">A3</div><div class="stat-label">Gantt Schedule</div></div>
   <div class="stat"><div class="stat-num">AUS</div><div class="stat-label">Made in Australia</div></div>
 </div>
+
+<section id="global" style="padding-top: 0; padding-bottom: 60px;">
+  <div class="container">
+    <span class="section-tag">Works Worldwide</span>
+    <h2>Built for AU.<br>Ready for <em style="font-style:normal;color:var(--gold);">Anywhere.</em></h2>
+    <p class="section-lead" style="margin-bottom:40px;">Set your units, currency, tax rate and spelling once — the whole app adjusts. Whether you're in Melbourne, Auckland, London or Houston.</p>
+    <div class="global-grid">
+      <div class="global-card">
+        <div class="global-icon">📐</div>
+        <div class="global-title">Measurement Units</div>
+        <div class="global-options">
+          <span class="global-chip active">Metric mm / m²</span>
+          <span class="global-chip">Imperial US in / sqft</span>
+          <span class="global-chip">Imperial UK in / sqft</span>
+        </div>
+        <div class="global-note">Decimal or fractional inch display — your choice.</div>
+      </div>
+      <div class="global-card">
+        <div class="global-icon">💰</div>
+        <div class="global-title">Currency</div>
+        <div class="global-options">
+          <span class="global-chip active">AUD $</span>
+          <span class="global-chip">USD $</span>
+          <span class="global-chip">GBP £</span>
+          <span class="global-chip">EUR €</span>
+          <span class="global-chip">NZD $</span>
+          <span class="global-chip">CAD $</span>
+        </div>
+        <div class="global-note">All pricing, quotes and invoices output in your currency.</div>
+      </div>
+      <div class="global-card">
+        <div class="global-icon">🧾</div>
+        <div class="global-title">Tax Rate</div>
+        <div class="global-options">
+          <span class="global-chip active">GST 10% (AU)</span>
+          <span class="global-chip">GST 15% (NZ)</span>
+          <span class="global-chip">VAT 20% (UK)</span>
+          <span class="global-chip">Custom %</span>
+        </div>
+        <div class="global-note">Override to any local rate. Applied to all invoices and quotes.</div>
+      </div>
+      <div class="global-card">
+        <div class="global-icon">🌐</div>
+        <div class="global-title">Language / Spelling</div>
+        <div class="global-options">
+          <span class="global-chip active">English (AU)</span>
+          <span class="global-chip">English (US)</span>
+          <span class="global-chip">English (UK)</span>
+        </div>
+        <div class="global-note">Colour vs Color. Kerb vs Curb. Spelt correctly for your market.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="features">
   <div class="container">
@@ -438,96 +568,92 @@
 </footer>
 
 <script>
-/* ── Spray-paint particle background ── */
+/* ── Colour-cycling blob background — matches app login screen ── */
 (function() {
   const canvas = document.getElementById('hero-canvas');
   const ctx = canvas.getContext('2d');
-  const GOLD = [212, 175, 55];
-  const AMBER = [240, 180, 40];
-  const WHITE = [255, 255, 255];
 
   function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
   }
   resize();
-  window.addEventListener('resize', resize);
+  window.addEventListener('resize', () => { resize(); });
 
-  /* Slow drifting orbs — like the blobs on your login page */
-  const orbs = Array.from({length: 6}, (_, i) => ({
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight,
-    r: 180 + Math.random() * 280,
-    dx: (Math.random() - 0.5) * 0.18,
-    dy: (Math.random() - 0.5) * 0.14,
-    hue: i % 2 === 0 ? GOLD : (i % 3 === 0 ? AMBER : WHITE),
-    alpha: 0.04 + Math.random() * 0.055,
-    phase: Math.random() * Math.PI * 2,
-    phaseSpeed: 0.002 + Math.random() * 0.003
-  }));
+  /* Colour palette — cycles through paint-inspired hues like the app login */
+  const palettes = [
+    { r:212, g:175, b:55  },   /* gold */
+    { r:180, g:100, b:220 },   /* purple */
+    { r:40,  g:160, b:200 },   /* teal/blue */
+    { r:220, g:80,  b:60  },   /* burnt orange */
+    { r:60,  g:180, b:120 },   /* green */
+    { r:240, g:140, b:30  },   /* amber */
+  ];
 
-  /* Fine mist particles — tiny specks floating like overspray */
-  const mist = Array.from({length: 90}, () => ({
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight,
-    r: 0.8 + Math.random() * 2.2,
-    dx: (Math.random() - 0.5) * 0.25,
-    dy: -0.08 - Math.random() * 0.2,
-    alpha: 0.06 + Math.random() * 0.18,
-    color: Math.random() > 0.6 ? GOLD : WHITE
-  }));
+  /* Blobs — each blob has its own colour that slowly shifts to the next */
+  const blobs = Array.from({length: 5}, (_, i) => {
+    const angle = (i / 5) * Math.PI * 2;
+    const dist = 0.25 + Math.random() * 0.2;
+    return {
+      x: 0.5 + Math.cos(angle) * dist,
+      y: 0.5 + Math.sin(angle) * dist,
+      r: 0.28 + Math.random() * 0.22,
+      vx: (Math.random() - 0.5) * 0.00018,
+      vy: (Math.random() - 0.5) * 0.00015,
+      phase: Math.random() * Math.PI * 2,
+      phaseSpeed: 0.0006 + Math.random() * 0.0006,
+      colourIdx: i % palettes.length,
+      colourT: Math.random(),           /* how far between current → next colour */
+      colourSpeed: 0.0008 + Math.random() * 0.001,
+    };
+  });
 
-  /* Slow scan lines — subtle horizontal banding for depth */
-  function drawScanLines() {
-    ctx.save();
-    for (let y = 0; y < canvas.height; y += 4) {
-      ctx.fillStyle = `rgba(0,0,0,${y % 8 === 0 ? 0.018 : 0.006})`;
-      ctx.fillRect(0, y, canvas.width, 1);
-    }
-    ctx.restore();
+  function lerpColour(a, b, t) {
+    return {
+      r: a.r + (b.r - a.r) * t,
+      g: a.g + (b.g - a.g) * t,
+      b: a.b + (b.b - a.b) * t,
+    };
   }
 
-  let frame = 0;
   function tick() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const W = canvas.width, H = canvas.height;
+    ctx.clearRect(0, 0, W, H);
 
-    /* Draw orbs */
-    orbs.forEach(o => {
-      o.phase += o.phaseSpeed;
-      o.x += o.dx + Math.sin(o.phase * 0.7) * 0.12;
-      o.y += o.dy + Math.cos(o.phase * 0.5) * 0.09;
-      if (o.x < -o.r) o.x = canvas.width + o.r;
-      if (o.x > canvas.width + o.r) o.x = -o.r;
-      if (o.y < -o.r) o.y = canvas.height + o.r;
-      if (o.y > canvas.height + o.r) o.y = -o.r;
+    blobs.forEach(bl => {
+      /* drift with gentle sine wobble */
+      bl.phase += bl.phaseSpeed;
+      bl.x += bl.vx + Math.sin(bl.phase) * 0.00008;
+      bl.y += bl.vy + Math.cos(bl.phase * 0.7) * 0.00006;
 
-      const g = ctx.createRadialGradient(o.x, o.y, 0, o.x, o.y, o.r);
-      const [r, g2, b] = o.hue;
-      g.addColorStop(0, `rgba(${r},${g2},${b},${o.alpha})`);
-      g.addColorStop(0.5, `rgba(${r},${g2},${b},${o.alpha * 0.3})`);
-      g.addColorStop(1, `rgba(${r},${g2},${b},0)`);
+      /* wrap around */
+      if (bl.x < -bl.r) bl.x = 1 + bl.r;
+      if (bl.x > 1 + bl.r) bl.x = -bl.r;
+      if (bl.y < -bl.r) bl.y = 1 + bl.r;
+      if (bl.y > 1 + bl.r) bl.y = -bl.r;
+
+      /* advance colour blend */
+      bl.colourT += bl.colourSpeed;
+      if (bl.colourT >= 1) {
+        bl.colourT -= 1;
+        bl.colourIdx = (bl.colourIdx + 1) % palettes.length;
+      }
+      const nextIdx = (bl.colourIdx + 1) % palettes.length;
+      const col = lerpColour(palettes[bl.colourIdx], palettes[nextIdx], bl.colourT);
+
+      /* draw radial gradient blob */
+      const cx = bl.x * W, cy = bl.y * H;
+      const radius = bl.r * Math.max(W, H);
+      const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+      grd.addColorStop(0,   `rgba(${col.r|0},${col.g|0},${col.b|0},0.13)`);
+      grd.addColorStop(0.4, `rgba(${col.r|0},${col.g|0},${col.b|0},0.06)`);
+      grd.addColorStop(1,   `rgba(${col.r|0},${col.g|0},${col.b|0},0)`);
       ctx.beginPath();
-      ctx.arc(o.x, o.y, o.r, 0, Math.PI * 2);
-      ctx.fillStyle = g;
+      ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+      ctx.fillStyle = grd;
       ctx.fill();
     });
 
-    /* Draw mist particles */
-    mist.forEach(p => {
-      p.x += p.dx;
-      p.y += p.dy;
-      if (p.y < -10) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; }
-      if (p.x < -10) p.x = canvas.width + 10;
-      if (p.x > canvas.width + 10) p.x = -10;
-      const [r, g2, b] = p.color;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${r},${g2},${b},${p.alpha})`;
-      ctx.fill();
-    });
-
-    drawScanLines();
-    frame++;
     requestAnimationFrame(tick);
   }
   tick();
