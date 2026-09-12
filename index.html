@@ -25,7 +25,6 @@
   .nav-links a:hover { color: var(--gold); }
   .nav-cta { background: var(--gold); color: #000 !important; padding: 9px 20px; border-radius: 6px; font-weight: 700 !important; }
   .nav-cta:hover { background: var(--gold-light) !important; color: #000 !important; }
-  /* Animated canvas background */
   #hero-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
   .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 24px 80px; position: relative; overflow: hidden; z-index: 1; }
   .hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(ellipse, rgba(212,175,55,0.10) 0%, transparent 70%); pointer-events: none; z-index: 0; }
@@ -85,6 +84,7 @@
   .tier-features li:last-child { border-bottom: none; }
   .tier-features li .tick { color: var(--gold); font-weight: 700; flex-shrink: 0; }
   .tier-features li .dim { color: var(--muted); }
+  .tier-solo-note { font-size: 11px; color: var(--muted); font-style: italic; margin-bottom: 20px; line-height: 1.5; padding: 8px 0; border-top: 1px solid var(--border); }
   .btn-tier { display: block; width: 100%; padding: 13px; text-align: center; border-radius: 8px; font-weight: 700; font-size: 14px; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; letter-spacing: 0.3px; }
   .btn-tier-gold { background: var(--gold); color: #000; }
   .btn-tier-gold:hover { background: var(--gold-light); }
@@ -122,7 +122,6 @@
   .chrome-dot { width:11px; height:11px; border-radius:50%; flex-shrink:0; }
   .chrome-url { margin-left:12px; font-size:11px; color:#555; font-family:'DM Mono',monospace; letter-spacing:0.5px; }
   .video-cta { margin-top:36px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
-  /* Mobile nav hamburger */
   .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
   .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.25s; }
   .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -133,7 +132,6 @@
   .mobile-menu a { color: var(--muted); text-decoration: none; font-size: 15px; font-weight: 500; padding: 12px 0; border-bottom: 1px solid var(--border); letter-spacing: 0.3px; transition: color 0.2s; }
   .mobile-menu a:last-child { border-bottom: none; color: var(--gold); font-weight: 700; margin-top: 8px; }
   .mobile-menu a:hover { color: var(--gold); }
-  /* Testimonials */
   #testimonials { background: var(--dark); }
   .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
   .testimonial-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; position: relative; transition: border-color 0.2s; }
@@ -145,7 +143,6 @@
   .testimonial-avatar { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-dark), var(--gold)); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: #000; flex-shrink: 0; }
   .testimonial-name { font-size: 13px; font-weight: 700; color: #fff; }
   .testimonial-role { font-size: 12px; color: var(--muted); margin-top: 2px; }
-  /* FAQ */
   #faq { background: var(--black); }
   .faq-list { max-width: 720px; }
   .faq-item { border-bottom: 1px solid var(--border); }
@@ -155,7 +152,6 @@
   .faq-item.open .faq-icon { transform: rotate(45deg); }
   .faq-a { font-size: 14px; color: var(--muted); line-height: 1.8; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.25s ease; }
   .faq-item.open .faq-a { max-height: 300px; padding-bottom: 20px; }
-  /* Closing CTA */
   #cta-close { background: var(--dark); text-align: center; padding: 100px 24px; position: relative; overflow: hidden; }
   #cta-close::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 700px; height: 400px; background: radial-gradient(ellipse, rgba(212,175,55,0.09) 0%, transparent 70%); pointer-events: none; }
   .cta-close-inner { position: relative; max-width: 600px; margin: 0 auto; }
@@ -163,7 +159,6 @@
   .cta-close-inner p { font-size: 17px; color: var(--muted); margin-bottom: 36px; font-weight: 300; line-height: 1.7; }
   .cta-close-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
   .cta-close-note { margin-top: 20px; font-size: 12px; color: var(--muted); }
-  /* Legal summary block */
   .legal-summary { background: var(--dark); border-top: 1px solid var(--border); padding: 48px 24px; }
   .legal-summary-inner { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
   .legal-summary-block h4 { font-size: 13px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
@@ -173,9 +168,7 @@
   .legal-links-row { max-width: 800px; margin: 16px auto 0; display: flex; gap: 20px; flex-wrap: wrap; border-top: 1px solid var(--border); padding-top: 16px; }
   .legal-links-row a { font-size: 12px; color: var(--muted); text-decoration: none; }
   .legal-links-row a:hover { color: var(--gold); }
-  @media (max-width: 768px) {
-    .legal-summary-inner { grid-template-columns: 1fr; gap: 24px; }
-  }
+  @media (max-width: 768px) { .legal-summary-inner { grid-template-columns: 1fr; gap: 24px; } }
   .global-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
   .global-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: border-color 0.2s; }
   .global-card:hover { border-color: rgba(212,175,55,0.35); }
@@ -213,7 +206,7 @@
     <a href="#how">How It Works</a>
     <a href="#pricing">Pricing</a>
     <a href="#about">About</a>
-    <a href="https://app.paintworkzpro.com.au/" class="nav-cta" target="_blank">Open App →</a>
+    <a href="https://app.paintworkzpro.com.au/" class="nav-cta" target="_blank">Open App &rarr;</a>
   </div>
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -227,7 +220,7 @@
   <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
   <a href="#about" onclick="closeMobileMenu()">About</a>
   <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
-  <a href="https://app.paintworkzpro.com.au/" target="_blank">Open App →</a>
+  <a href="https://app.paintworkzpro.com.au/" target="_blank">Open App &rarr;</a>
 </div>
 
 <section class="hero">
@@ -235,10 +228,11 @@
   <h1>Run Your <em>Spray Shop</em> Properly</h1>
   <p class="hero-sub">Measure jobs, generate quotes, calculate 2Pac mixes, track stock, schedule work, and invoice clients — all in one system.</p>
   <div class="hero-actions">
-    <a href="https://app.paintworkzpro.com.au/" class="btn-primary" target="_blank">Get Started Free →</a>
-    <a href="#demo" class="btn-secondary">▶ Watch Demo</a>
+    <a href="https://app.paintworkzpro.com.au/" class="btn-primary" target="_blank">Get Started Free &rarr;</a>
+    <a href="#demo" class="btn-secondary">&#9654; Watch Demo</a>
   </div>
-  <p class="hero-note">7 Days Free — Solo Access · No credit card required · Australian made · Works worldwide</p>
+  <!-- FIXED: Clarified that signup is required for trial, no charge until trial ends -->
+  <p class="hero-note">7-Day Solo Trial · Sign up to activate · No charge until trial ends · Australian made · Works worldwide</p>
 </section>
 
 <section id="demo">
@@ -264,7 +258,7 @@
       </div>
     </div>
     <div class="video-cta">
-      <a href="https://app.paintworkzpro.com.au/" class="btn-primary" target="_blank">Try It Free →</a>
+      <a href="https://app.paintworkzpro.com.au/" class="btn-primary" target="_blank">Try It Free &rarr;</a>
       <a href="#pricing" class="btn-secondary">See Pricing</a>
     </div>
     <p style="margin-top:14px;font-size:12px;color:var(--muted);">Australian made · Works on iPhone, Android &amp; Desktop</p>
@@ -274,7 +268,7 @@
 <div class="stats-bar">
   <div class="stat"><div class="stat-num">10</div><div class="stat-label">PDF Form Types</div></div>
   <div class="stat"><div class="stat-num">6</div><div class="stat-label">Currencies Supported</div></div>
-  <div class="stat"><div class="stat-num">AU·NZ·UK·US</div><div class="stat-label">Countries Active</div></div>
+  <div class="stat"><div class="stat-num">AU&middot;NZ&middot;UK&middot;US</div><div class="stat-label">Countries Active</div></div>
   <div class="stat"><div class="stat-num">FREE</div><div class="stat-label">To Start — Always</div></div>
 </div>
 
@@ -346,10 +340,10 @@
       <div class="feature-card"><div class="feature-icon">📅</div><div class="feature-title">Job Scheduling</div><div class="feature-desc">A3 Gantt-style chart across all active jobs. See Measure, Sand, Undercoat, Topcoat and Complete phases at a glance. Set default phase durations and override per job.</div></div>
       <div class="feature-card"><div class="feature-icon">🏷️</div><div class="feature-title">Label Printing</div><div class="feature-desc">Print individual part labels on standard Avery sheets — 8, 10, 14 or 21 per A4. Job labels, shop trolley labels, and sticker sheets for courier bundles. QR code on every label links back to the job.</div></div>
       <div class="feature-card"><div class="feature-icon">🖨️</div><div class="feature-title">Batch Print</div><div class="feature-desc">Select which forms generate automatically when a job is completed — Cover Sheet, Supply Docket, Mixing Card, Labels, Invoice and more all print in one go.</div></div>
-      <div class="feature-card"><div class="feature-icon">📊</div><div class="feature-title">Reports & KPIs</div><div class="feature-desc">Revenue, SQM throughput, top colours, client breakdown, paint quantities and gross margin. Filter by date range, client or job size. Print-ready PDF reports.</div></div>
+      <div class="feature-card"><div class="feature-icon">📊</div><div class="feature-title">Reports &amp; KPIs</div><div class="feature-desc">Revenue, SQM throughput, top colours, client breakdown, paint quantities and gross margin. Filter by date range, client or job size. Print-ready PDF reports.</div></div>
       <div class="feature-card"><div class="feature-icon">🎨</div><div class="feature-title">Colour Surcharges</div><div class="feature-desc">Set percentage surcharges for Standard, Light, Dark and Extra Tint colours automatically. Delivery regions, freight charges and GST all configurable per job.</div></div>
       <div class="feature-card"><div class="feature-icon">👷</div><div class="feature-title">Staff Accounts</div><div class="feature-desc">Create shop floor logins with email and a 4-digit PIN. Staff can view jobs, history, supply dockets and mixing cards — but can't see pricing, estimates, quotes or admin.</div></div>
-      <div class="feature-card"><div class="feature-icon">☁️</div><div class="feature-title">Cloud Sync & Backups</div><div class="feature-desc">Jobs and settings sync across all devices. Download a full backup any time, or run the companion script for automated nightly backups to your external drive — 30-day rotating archive.</div></div>
+      <div class="feature-card"><div class="feature-icon">☁️</div><div class="feature-title">Cloud Sync &amp; Backups</div><div class="feature-desc">Jobs and settings sync across all devices. Download a full backup any time, or run the companion script for automated nightly backups to your external drive — 30-day rotating archive.</div></div>
     </div>
   </div>
 </section>
@@ -358,11 +352,13 @@
   <div class="container">
     <span class="section-tag">Always Free</span>
     <h2>Start Free.<br>Upgrade When Ready.</h2>
-    <p class="section-lead">Create and save up to 3 full jobs on the free plan — no subscription needed.</p>
+    <!-- FIXED: consistent wording — "3 jobs" not "3 full jobs" -->
+    <p class="section-lead">Create and save up to 3 jobs on the free plan — no subscription needed.</p>
     <div class="free-features">
       <div class="free-chip"><span class="ico">🎨</span> Mixing Card</div>
       <div class="free-chip"><span class="ico">📅</span> A3 Schedule</div>
-      <div class="free-chip"><span class="ico">📂</span> 3 Full Jobs</div>
+      <!-- FIXED: consistent wording -->
+      <div class="free-chip"><span class="ico">📂</span> 3 Jobs</div>
       <div class="free-chip"><span class="ico">👥</span> Client Database</div>
       <div class="free-chip"><span class="ico">🏷️</span> Shop Labels</div>
       <div class="free-chip"><span class="ico">📦</span> Supply Docket</div>
@@ -395,7 +391,8 @@
         <div class="tier-name">Free</div>
         <div class="tier-price">$<span style="font-size:52px;">0</span></div>
         <div class="tier-period">forever</div>
-        <div class="tier-note">Up to 3 full jobs</div>
+        <!-- FIXED: consistent "3 jobs" wording -->
+        <div class="tier-note">Up to 3 jobs</div>
         <ul class="tier-features">
           <li><span class="tick">✓</span> Create &amp; save up to 3 jobs</li>
           <li><span class="tick">✓</span> Full measurement sheet</li>
@@ -412,8 +409,9 @@
       <div class="tier">
         <div class="tier-name">Solo</div>
         <div class="tier-price"><sup>$</sup>49<sub>/mo</sub></div>
-        <div class="tier-period">AUD per month</div>
-        <div class="tier-note">7-day free trial included</div>
+        <div class="tier-period">AUD exc. GST per month</div>
+        <!-- FIXED: trial wording clarified -->
+        <div class="tier-note">7-day free trial · no charge until trial ends</div>
         <ul class="tier-features">
           <li><span class="tick">✓</span> Everything in Free</li>
           <li><span class="tick">✓</span> Unlimited jobs</li>
@@ -429,13 +427,15 @@
           <li><span class="dim">✗</span> <span class="dim">Pricing matrix &amp; staff logins</span></li>
           <li><span class="dim">✗</span> <span class="dim">Reports &amp; KPIs</span></li>
         </ul>
-        <button onclick="upgradeSolo()" class="btn-tier btn-tier-outline" style="width:100%; cursor:pointer;">Start 7-Day Trial →</button>
+        <!-- FIXED: Solo note explaining what it's best for -->
+        <p class="tier-solo-note">Perfect for measuring &amp; production — upgrade to Pro for quoting &amp; invoicing</p>
+        <button onclick="upgradeSolo()" class="btn-tier btn-tier-outline" style="width:100%; cursor:pointer;">Start 7-Day Trial &rarr;</button>
       </div>
       <div class="tier featured">
         <div class="tier-badge">BEST VALUE</div>
         <div class="tier-name">Pro</div>
         <div class="tier-price"><sup>$</sup>99<sub>/mo</sub></div>
-        <div class="tier-period">AUD per month</div>
+        <div class="tier-period">AUD exc. GST per month</div>
         <div class="tier-note">Full business suite</div>
         <ul class="tier-features">
           <li><span class="tick">✓</span> Everything in Solo</li>
@@ -451,13 +451,14 @@
           <li><span class="tick">✓</span> Shop closures &amp; public holidays</li>
           <li><span class="tick">✓</span> Priority support</li>
         </ul>
-        <button onclick="upgradePro()" class="btn-tier btn-tier-gold" style="width:100%; cursor:pointer;">Upgrade to Pro →</button>
+        <button onclick="upgradePro()" class="btn-tier btn-tier-gold" style="width:100%; cursor:pointer;">Upgrade to Pro &rarr;</button>
       </div>
     </div>
     <div class="trial-banner">
-      Start on <strong>Free forever</strong> — no credit card required. Try <strong>Solo free for 7 days</strong>, or go straight to Pro for full invoicing and business features.
+      Start on <strong>Free forever</strong> — no credit card required to explore. Try <strong>Solo free for 7 days</strong> — account required to activate trial, no charge until trial ends.
     </div>
-    <p style="margin-top:16px; font-size:12px; color:var(--muted);">Prices in AUD exc. GST. Payments processed securely by Paddle. Cancel any time.</p>
+    <!-- FIXED: exc. GST confirmed, AUD currency explicit -->
+    <p style="margin-top:16px; font-size:12px; color:var(--muted);">Prices in AUD exc. GST. GST added at checkout. Payments processed securely by Paddle. Cancel any time.</p>
   </div>
 </section>
 
@@ -549,8 +550,17 @@
         <div class="faq-a">Yes, on the Pro plan. You can create staff accounts with a 4-digit PIN. Staff can view jobs, history, supply dockets, mixing cards and shop labels — but they cannot access estimates, quotes, invoices, the pricing matrix, or admin settings. Pricing stays between you and your office.</div>
       </div>
       <div class="faq-item">
+        <!-- FIXED: Clarified free jobs wording — completed jobs still count -->
+        <button class="faq-q">Do completed jobs count toward the 3-job free limit?<span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes — the free plan allows up to 3 saved jobs in total, including completed ones. If you need to save more jobs, upgrade to Solo or Pro for unlimited job history. You can still view and print all your existing jobs at any time.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Why does the trial ask for my details if there's no credit card required?<span class="faq-icon">+</span></button>
+        <div class="faq-a">Creating an account requires your email to set up your secure login and sync your data across devices. The 7-day trial is genuinely free — you won't be charged until the trial ends, and you can cancel before then with no cost. Your payment details are handled securely by Paddle, never stored by us.</div>
+      </div>
+      <div class="faq-item">
         <button class="faq-q">What happens when my 7-day trial ends?<span class="faq-icon">+</span></button>
-        <div class="faq-a">Your account automatically drops to the Free plan — no charge, no credit card required. You keep everything you've entered and can still access your jobs, mixing cards, schedule and client database. You'll just be limited to 3 active jobs until you choose to upgrade.</div>
+        <div class="faq-a">Your account automatically drops to the Free plan — no charge, no credit card required. You keep everything you've entered and can still access your jobs, mixing cards, schedule and client database. You'll just be limited to 3 saved jobs until you choose to upgrade.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q">Is my data safe? What if I cancel?<span class="faq-icon">+</span></button>
@@ -580,12 +590,13 @@
   <div class="cta-close-inner">
     <span class="section-tag">Ready to Start?</span>
     <h2>Your Shop Runs<br><em style="font-style:normal;color:var(--gold);">Better From Day One.</em></h2>
-    <p>Start free — no credit card, no pressure. The Free plan gives you 3 full jobs, mixing cards, labels and the schedule. When you're ready to go unlimited, Solo and Pro are one tap away.</p>
+    <p>Start free — no credit card, no pressure. The Free plan gives you 3 jobs, mixing cards, labels and the schedule. When you're ready to go unlimited, Solo and Pro are one tap away.</p>
     <div class="cta-close-actions">
-      <a href="https://app.paintworkzpro.com.au/" class="btn-primary" target="_blank" style="font-size:17px; padding:16px 40px;">Get Started Free →</a>
+      <a href="https://app.paintworkzpro.com.au/" class="btn-primary" target="_blank" style="font-size:17px; padding:16px 40px;">Get Started Free &rarr;</a>
       <a href="#pricing" class="btn-secondary" style="font-size:17px; padding:16px 40px;">See Pricing</a>
     </div>
-    <p class="cta-close-note">7-day Solo trial included · No credit card required · Cancel any time</p>
+    <!-- FIXED: clarified trial activation wording -->
+    <p class="cta-close-note">7-day Solo trial · account required to activate · no charge until trial ends · cancel any time</p>
   </div>
 </section>
 
@@ -594,16 +605,16 @@
     <div class="legal-summary-block">
       <h4>Privacy Policy</h4>
       <p>We collect only your email for login. Your job and business data is stored in Firebase, associated with your account only — we never sell or share it. Payments are processed by Paddle; we don't store card details.</p>
-      <p><a href="privacy.html">Read full Privacy Policy →</a></p>
+      <p><a href="privacy.html">Read full Privacy Policy &rarr;</a></p>
     </div>
     <div class="legal-summary-block">
       <h4>Terms of Service</h4>
       <p>By using PaintWorkz Pro you agree to our Terms. Subscriptions are billed monthly via Paddle. You may cancel any time. Refund requests within 14 days of initial purchase are considered under Paddle's refund policy.</p>
-      <p><a href="terms.html">Read full Terms of Service →</a> &nbsp;·&nbsp; <a href="refund.html">Refund Policy →</a></p>
+      <p><a href="terms.html">Read full Terms of Service &rarr;</a> &nbsp;&middot;&nbsp; <a href="refund.html">Refund Policy &rarr;</a></p>
     </div>
   </div>
   <div class="legal-links-row">
-    <span style="font-size:12px;color:var(--muted);">Colin Bedford · ABN 90 419 649 257 · Victoria, Australia</span>
+    <span style="font-size:12px;color:var(--muted);">Colin Bedford &middot; ABN 90 419 649 257 &middot; Victoria, Australia</span>
     <a href="privacy.html">Privacy</a>
     <a href="terms.html">Terms</a>
     <a href="refund.html">Refund Policy</a>
@@ -623,11 +634,10 @@
     <a href="refund.html">Refund Policy</a>
     <a href="https://app.paintworkzpro.com.au/" target="_blank">Open App</a>
   </div>
-  <div class="footer-copy">© 2026 Colin Bedford (ABN 90 419 649 257) · Victoria, Australia · All rights reserved</div>
+  <div class="footer-copy">&copy; 2026 Colin Bedford (ABN 90 419 649 257) &middot; Victoria, Australia &middot; All rights reserved</div>
 </footer>
 
 <script>
-/* Mobile nav */
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
 hamburger.addEventListener('click', () => {
@@ -638,14 +648,11 @@ function closeMobileMenu() {
   hamburger.classList.remove('open');
   mobileMenu.classList.remove('open');
 }
-/* Close mobile menu on outside click */
 document.addEventListener('click', (e) => {
   if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
     closeMobileMenu();
   }
 });
-
-/* FAQ accordion */
 document.querySelectorAll('.faq-q').forEach(btn => {
   btn.addEventListener('click', () => {
     const item = btn.closest('.faq-item');
@@ -657,92 +664,49 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 </script>
 
 <script>
-/* ── Colour-cycling blob background — matches app login screen ── */
 (function() {
   const canvas = document.getElementById('hero-canvas');
   const ctx = canvas.getContext('2d');
-
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
   resize();
   window.addEventListener('resize', () => { resize(); });
-
-  /* Colour palette — cycles through paint-inspired hues like the app login */
   const palettes = [
-    { r:212, g:175, b:55  },   /* gold */
-    { r:180, g:100, b:220 },   /* purple */
-    { r:40,  g:160, b:200 },   /* teal/blue */
-    { r:220, g:80,  b:60  },   /* burnt orange */
-    { r:60,  g:180, b:120 },   /* green */
-    { r:240, g:140, b:30  },   /* amber */
+    { r:212, g:175, b:55 }, { r:180, g:100, b:220 }, { r:40, g:160, b:200 },
+    { r:220, g:80, b:60 }, { r:60, g:180, b:120 }, { r:240, g:140, b:30 },
   ];
-
-  /* Blobs — each blob has its own colour that slowly shifts to the next */
   const blobs = Array.from({length: 5}, (_, i) => {
     const angle = (i / 5) * Math.PI * 2;
     const dist = 0.25 + Math.random() * 0.2;
-    return {
-      x: 0.5 + Math.cos(angle) * dist,
-      y: 0.5 + Math.sin(angle) * dist,
-      r: 0.28 + Math.random() * 0.22,
-      vx: (Math.random() - 0.5) * 0.00018,
-      vy: (Math.random() - 0.5) * 0.00015,
-      phase: Math.random() * Math.PI * 2,
-      phaseSpeed: 0.0006 + Math.random() * 0.0006,
-      colourIdx: i % palettes.length,
-      colourT: Math.random(),           /* how far between current → next colour */
-      colourSpeed: 0.0008 + Math.random() * 0.001,
-    };
+    return { x: 0.5 + Math.cos(angle) * dist, y: 0.5 + Math.sin(angle) * dist,
+      r: 0.28 + Math.random() * 0.22, vx: (Math.random() - 0.5) * 0.00018,
+      vy: (Math.random() - 0.5) * 0.00015, phase: Math.random() * Math.PI * 2,
+      phaseSpeed: 0.0006 + Math.random() * 0.0006, colourIdx: i % palettes.length,
+      colourT: Math.random(), colourSpeed: 0.0008 + Math.random() * 0.001 };
   });
-
-  function lerpColour(a, b, t) {
-    return {
-      r: a.r + (b.r - a.r) * t,
-      g: a.g + (b.g - a.g) * t,
-      b: a.b + (b.b - a.b) * t,
-    };
-  }
-
+  function lerpColour(a, b, t) { return { r: a.r + (b.r-a.r)*t, g: a.g + (b.g-a.g)*t, b: a.b + (b.b-a.b)*t }; }
   function tick() {
     const W = canvas.width, H = canvas.height;
     ctx.clearRect(0, 0, W, H);
-
     blobs.forEach(bl => {
-      /* drift with gentle sine wobble */
       bl.phase += bl.phaseSpeed;
       bl.x += bl.vx + Math.sin(bl.phase) * 0.00008;
       bl.y += bl.vy + Math.cos(bl.phase * 0.7) * 0.00006;
-
-      /* wrap around */
       if (bl.x < -bl.r) bl.x = 1 + bl.r;
       if (bl.x > 1 + bl.r) bl.x = -bl.r;
       if (bl.y < -bl.r) bl.y = 1 + bl.r;
       if (bl.y > 1 + bl.r) bl.y = -bl.r;
-
-      /* advance colour blend */
       bl.colourT += bl.colourSpeed;
-      if (bl.colourT >= 1) {
-        bl.colourT -= 1;
-        bl.colourIdx = (bl.colourIdx + 1) % palettes.length;
-      }
+      if (bl.colourT >= 1) { bl.colourT -= 1; bl.colourIdx = (bl.colourIdx + 1) % palettes.length; }
       const nextIdx = (bl.colourIdx + 1) % palettes.length;
       const col = lerpColour(palettes[bl.colourIdx], palettes[nextIdx], bl.colourT);
-
-      /* draw radial gradient blob */
-      const cx = bl.x * W, cy = bl.y * H;
-      const radius = bl.r * Math.max(W, H);
+      const cx = bl.x * W, cy = bl.y * H, radius = bl.r * Math.max(W, H);
       const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
       grd.addColorStop(0,   `rgba(${col.r|0},${col.g|0},${col.b|0},0.13)`);
       grd.addColorStop(0.4, `rgba(${col.r|0},${col.g|0},${col.b|0},0.06)`);
       grd.addColorStop(1,   `rgba(${col.r|0},${col.g|0},${col.b|0},0)`);
-      ctx.beginPath();
-      ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-      ctx.fillStyle = grd;
-      ctx.fill();
+      ctx.beginPath(); ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+      ctx.fillStyle = grd; ctx.fill();
     });
-
     requestAnimationFrame(tick);
   }
   tick();
