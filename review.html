@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review PaintWorkz Pro</title>
+<meta name="description" content="Using PaintWorkz Pro? Leave a quick review. It takes a few minutes and helps other spray shops find the app.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #d4af37; --gold-light: #f0d060;
+    --black: #0a0a0a; --dark: #111111; --card: #1a1a1a;
+    --border: #2a2a2a; --text: #e8e8e8; --muted: #888; --green: #4caf50;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--black); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.6; }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 40px; background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(12px); border-bottom: 1px solid rgba(212,175,55,0.15);
+  }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 2px; color: var(--gold); text-decoration: none; }
+  .nav-logo span { color: #fff; }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-cta { background: var(--gold) !important; color: #000 !important; padding: 9px 20px; border-radius: 6px; font-weight: 700 !important; }
+  .nav-cta:hover { background: var(--gold-light) !important; }
+  main { max-width: 1000px; margin: 0 auto; padding: 140px 24px 100px; }
+  .section-tag { font-size: 11px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 14px; display: block; }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 6vw, 64px); letter-spacing: 2px; color: #fff; line-height: 1; margin-bottom: 16px; }
+  .lead { font-size: 18px; color: var(--muted); font-weight: 300; margin-bottom: 56px; }
+  footer { background: var(--dark); border-top: 1px solid var(--border); padding: 32px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--gold); letter-spacing: 2px; }
+  .footer-logo span { color: #fff; }
+  .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 12px; color: var(--muted); width: 100%; text-align: center; margin-top: 8px; }
+  
+  article { max-width: 760px; }
+  article h2 { font-family: 'Bebas Neue', sans-serif; font-size: 34px; letter-spacing: 1.5px; color: #fff; margin: 48px 0 14px; line-height: 1.1; }
+  article h3 { font-size: 17px; font-weight: 700; color: var(--gold); margin: 28px 0 8px; }
+  article p { color: var(--text); margin-bottom: 16px; }
+  article ul, article ol { margin: 0 0 18px 22px; }
+  article li { margin-bottom: 8px; }
+  article strong { color: #fff; }
+  .byline { font-size: 13px; color: var(--muted); margin: -36px 0 40px; }
+  .box { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin: 22px 0; }
+  .box.gold { border-color: rgba(212,175,55,0.35); background: rgba(212,175,55,0.06); }
+  .box p:last-child { margin-bottom: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 18px 0 24px; font-size: 14px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--gold); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+  td.num, th.num { text-align: right; white-space: nowrap; }
+  .table-wrap { overflow-x: auto; }
+  .cta { margin: 56px 0 0; padding: 32px; border-radius: 16px; background: linear-gradient(160deg, #1e1a0a, #1a1a1a); border: 1px solid rgba(212,175,55,0.35); }
+  .cta h2 { margin-top: 0; }
+  .btn { display: inline-block; background: var(--gold); color: #000; font-weight: 700; padding: 13px 26px; border-radius: 8px; text-decoration: none; margin-top: 6px; }
+  .btn:hover { background: var(--gold-light); }
+  .muted { color: var(--muted); font-size: 13px; }
+  @media (max-width: 768px) { nav { padding: 14px 20px; } .nav-links { display: none; } main { padding: 110px 16px 72px; } footer { flex-direction: column; text-align: center; } .cta { padding: 24px 18px; } th, td { padding: 8px 6px; } }
+
+  .guide-list { display: grid; gap: 16px; margin-top: 8px; }
+  .guide-card { display: block; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; text-decoration: none; transition: border-color .2s; }
+  .guide-card:hover { border-color: var(--gold); }
+  .guide-card .tag { font-size: 11px; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
+  .guide-card h3 { color: #fff; margin: 6px 0 6px; font-size: 18px; }
+  .guide-card p { color: var(--muted); font-size: 14px; margin: 0; }
+  .related { margin-top: 40px; font-size: 14px; color: var(--muted); }
+  .related a { color: var(--gold); }
+
+  .review-card { max-width: 620px; background: var(--card); border: 1px solid rgba(212,175,55,0.35); border-radius: 16px; padding: 32px; }
+  .review-card .btn { font-size: 16px; padding: 15px 30px; }
+  .sites { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 24px; }
+  .sites span { font-size: 12px; font-weight: 700; color: var(--text); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; }
+  .steps { margin: 0 0 22px 20px; color: var(--muted); font-size: 14px; }
+  .steps li { margin-bottom: 6px; }
+  @media (max-width: 768px) { .review-card { padding: 22px 18px; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">PaintWorkz<span> Pro</span></a>
+  <div class="nav-links">
+    <a href="/guides.html">Guides</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="https://app.paintworkzpro.com.au/" class="nav-cta" target="_blank">Open App &rarr;</a>
+  </div>
+</nav>
+<main>
+<article>
+  <span class="section-tag">Thank you</span>
+  <h1>Enjoying PaintWorkz Pro?</h1>
+  <p class="lead">A quick, honest review helps other spray shops find the app &mdash; and tells us what to improve next.</p>
+  <div class="review-card">
+    <p>One review shows up on all four of the big software review sites:</p>
+    <div class="sites"><span>G2</span><span>Capterra</span><span>GetApp</span><span>Software Advice</span></div>
+    <ol class="steps">
+      <li>Tap the button below (opens G2&rsquo;s review form).</li>
+      <li>Sign in or sign up &mdash; LinkedIn or Google is quickest.</li>
+      <li>Tell other shops what you use it for and what you think. A few lines is plenty.</li>
+    </ol>
+    <a href="https://www.g2.com/contributor/paintworkz-pro-review-collection-e1f3f69f-a930-4b1a-b531-e6243a3ea7c6" class="btn" target="_blank" rel="noopener">Leave a review &rarr;</a>
+    <p class="muted" style="margin-top:16px;">The review sites may ask you to confirm you use the software. Good or bad, honest feedback is what helps. Something not working? Email <a href="mailto:support@paintworkzpro.com.au" style="color:var(--gold);">support@paintworkzpro.com.au</a> and we&rsquo;ll fix it.</p>
+  </div>
+</article>
+</main>
+<footer>
+  <div class="footer-logo">PaintWorkz<span> Pro</span></div>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/guides.html">Guides</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="https://app.paintworkzpro.com.au/" target="_blank">Open App</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 Colin Bedford (ABN 90 419 649 257) &middot; Victoria, Australia</div>
+</footer>
+</body>
+</html>
