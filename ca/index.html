@@ -186,16 +186,6 @@
   .cta-close-inner p { font-size: 17px; color: var(--muted); margin-bottom: 36px; font-weight: 300; line-height: 1.7; }
   .cta-close-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
   .cta-close-note { margin-top: 20px; font-size: 12px; color: var(--muted); }
-  .legal-summary { background: var(--dark); border-top: 1px solid var(--border); padding: 48px 24px; }
-  .legal-summary-inner { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-  .legal-summary-block h4 { font-size: 13px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
-  .legal-summary-block p { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 8px; }
-  .legal-summary-block a { color: var(--gold); text-decoration: none; }
-  .legal-summary-block a:hover { text-decoration: underline; }
-  .legal-links-row { max-width: 800px; margin: 16px auto 0; display: flex; gap: 20px; flex-wrap: wrap; border-top: 1px solid var(--border); padding-top: 16px; }
-  .legal-links-row a { font-size: 12px; color: var(--muted); text-decoration: none; }
-  .legal-links-row a:hover { color: var(--gold); }
-  @media (max-width: 768px) { .legal-summary-inner { grid-template-columns: 1fr; gap: 24px; } }
   .global-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
   .global-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: border-color 0.2s; }
   .global-card:hover { border-color: rgba(212,175,55,0.35); }
@@ -218,6 +208,7 @@
     .about-inner { grid-template-columns: 1fr; gap: 40px; }
     footer { flex-direction: column; text-align: center; padding: 32px 20px; }
   }
+  @media (max-width: 420px) { .stat-num { font-size: 26px; } }
 </style>
 </head>
 <body>
@@ -308,11 +299,11 @@
 <div class="stats-bar">
   <div class="stat"><div class="stat-num">10</div><div class="stat-label">PDF Form Types</div></div>
   <div class="stat"><div class="stat-num">6</div><div class="stat-label">Currencies Supported</div></div>
-  <div class="stat"><div class="stat-num">AU&middot;NZ&middot;UK&middot;US</div><div class="stat-label">Countries Active</div></div>
+  <div class="stat"><div class="stat-num">AU&middot;NZ&middot;UK&middot;IE&middot;US&middot;CA</div><div class="stat-label">Countries Active</div></div>
   <div class="stat"><div class="stat-num">FREE</div><div class="stat-label">To Start — Always</div></div>
 </div>
 
-<section id="global" style="padding-top: 0; padding-bottom: 60px;">
+<section id="global" style="padding-top: 80px; padding-bottom: 60px;">
   <div class="container">
     <span class="section-tag">Set Up for Canada</span>
     <h2>Your Units.<br>Your <em style="font-style:normal;color:var(--gold);">Dollars.</em></h2>
@@ -508,7 +499,7 @@
         <h2>Software That<br>Gets The Trade.</h2>
         <p>PaintWorkz Pro was built by a working spray shop operator — not a software company guessing what finishers need. Every feature exists because it solved a real problem on a real job.</p>
         <p>From the way panels and door profiles are priced, to the mixing card format your supplier expects — the details are right because they came from the field.</p>
-        <div class="about-highlight">"Built it because nothing else on the market understood how a spray shop actually works."<br><strong style="font-style:normal; color:var(--gold); font-size:13px;">— Colin Bedford — PaintworkzPro — Developer/Owner</strong></div>
+        <div class="about-highlight">"Built it because nothing else on the market understood how a spray shop actually works."<br><strong style="font-style:normal; color:var(--gold); font-size:13px;">— Colin Bedford, Developer &amp; Owner, PaintWorkz Pro</strong></div>
       </div>
       <div class="about-visual">
         <ul class="app-feature-list">
@@ -599,27 +590,6 @@
   </div>
 </section>
 
-<div class="legal-summary" id="legal">
-  <div class="legal-summary-inner">
-    <div class="legal-summary-block">
-      <h4>Privacy Policy</h4>
-      <p>We collect only your email for login. Your job and business data is stored in Firebase, associated with your account only — we never sell or share it. Payments are processed by Paddle; we don't store card details.</p>
-      <p><a href="/privacy.html">Read full Privacy Policy &rarr;</a></p>
-    </div>
-    <div class="legal-summary-block">
-      <h4>Terms of Service</h4>
-      <p>By using PaintWorkz Pro you agree to our Terms. Subscriptions are billed monthly via Paddle. You may cancel any time. Refund requests within 14 days of initial purchase are considered under Paddle's refund policy.</p>
-      <p><a href="/terms.html">Read full Terms of Service &rarr;</a> &nbsp;&middot;&nbsp; <a href="/refund.html">Refund Policy &rarr;</a></p>
-    </div>
-  </div>
-  <div class="legal-links-row">
-    <span style="font-size:12px;color:var(--muted);">Colin Bedford &middot; ABN 90 419 649 257 &middot; Victoria, Australia &middot; Serving shops in Canada</span>
-    <a href="/privacy.html">Privacy</a>
-    <a href="/terms.html">Terms</a>
-    <a href="/refund.html">Refund Policy</a>
-    <a href="https://www.paddle.com/legal/privacy" target="_blank">Paddle Privacy</a>
-  </div>
-</div>
 
 <footer>
   <div class="footer-logo">PaintWorkz<span> Pro</span></div>
@@ -631,6 +601,7 @@
     <a href="/privacy.html">Privacy</a>
     <a href="/terms.html">Terms</a>
     <a href="/refund.html">Refund Policy</a>
+    <a href="https://www.paddle.com/legal/privacy" target="_blank" rel="noopener">Paddle Privacy</a>
     <a href="https://app.paintworkzpro.com.au/?region=ca" target="_blank">Open App</a>
   </div>
   <div class="footer-badge" style="margin:18px 0 6px;">
